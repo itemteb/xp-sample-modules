@@ -4,7 +4,7 @@
     <childOrder>_modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
-        <boolean name="draft">false</boolean>
+        <boolean name="valid">true</boolean>
         <string name="displayName">'main' region only</string>
         <string name="type">system:page-template</string>
         <property-set name="data">

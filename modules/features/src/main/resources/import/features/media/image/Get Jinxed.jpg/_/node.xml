@@ -4,7 +4,7 @@
     <childOrder>_modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
-        <boolean name="draft">false</boolean>
+        <boolean name="valid">true</boolean>
         <string name="displayName">Get Jinxed.jpg</string>
         <string name="type">system:image</string>
         <property-set name="data">

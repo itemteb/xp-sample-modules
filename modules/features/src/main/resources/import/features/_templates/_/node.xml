@@ -4,7 +4,7 @@
     <childOrder>_modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
-        <boolean name="draft">false</boolean>
+        <boolean name="valid">true</boolean>
         <string name="displayName">Templates</string>
         <string name="type">system:template-folder</string>
         <property-set name="data"/>

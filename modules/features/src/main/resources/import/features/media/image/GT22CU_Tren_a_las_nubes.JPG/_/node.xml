@@ -4,7 +4,7 @@
     <childOrder>_modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
-        <boolean name="draft">false</boolean>
+        <boolean name="valid">true</boolean>
         <string name="displayName">GT22CU_Tren_a_las_nubes.JPG</string>
         <string name="type">system:image</string>
         <property-set name="data">

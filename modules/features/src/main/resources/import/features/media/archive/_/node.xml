@@ -4,7 +4,7 @@
     <childOrder>_modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
-        <boolean name="draft">true</boolean>
+        <boolean name="valid">false</boolean>
         <string name="displayName">archive</string>
         <string name="type">system:folder</string>
         <property-set name="data"/>
