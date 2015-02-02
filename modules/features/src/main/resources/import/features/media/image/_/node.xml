@@ -6,7 +6,7 @@
     <data>
         <boolean name="valid">false</boolean>
         <string name="displayName">image</string>
-        <string name="type">system:folder</string>
+      <string name="type">base:folder</string>
         <property-set name="data"/>
     </data>
     <indexConfigs>

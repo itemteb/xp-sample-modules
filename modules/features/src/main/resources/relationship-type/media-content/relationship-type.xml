@@ -5,6 +5,6 @@
   <to-semantic>used by</to-semantic>
   <allowed-from-types/>
   <allowed-to-types>
-    <content-type>system:image</content-type>
+    <content-type>media:image</content-type>
   </allowed-to-types>
 </relationship-type>

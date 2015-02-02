@@ -6,9 +6,9 @@
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">No regions</string>
-        <string name="type">system:page-template</string>
+      <string name="type">portal:page-template</string>
         <property-set name="data">
-            <string name="supports">system:folder</string>
+          <string name="supports">base:folder</string>
         </property-set>
         <property-set name="meta">
             <property-set name="system:menu-item">

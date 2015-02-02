@@ -19,7 +19,7 @@ function handleGet() {
     var reqContent = execute('portal.getContent');
     var reqComponent = execute('portal.getComponent');
     var member;
-    if (reqContent.type == "system:page-template") {
+    if (reqContent.type == "portal:page-template") {
         member = defaultMember;
     }
     else {

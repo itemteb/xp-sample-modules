@@ -6,7 +6,7 @@
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Gasa_Dzong.jpg</string>
-        <string name="type">system:image</string>
+      <string name="type">media:image</string>
         <property-set name="data">
             <string name="media">Gasa_Dzong.jpg</string>
             <string name="mimeType">image/jpeg</string>

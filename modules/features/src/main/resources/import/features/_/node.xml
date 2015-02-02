@@ -6,7 +6,7 @@
   <data>
     <boolean name="valid">true</boolean>
     <string name="displayName">Features</string>
-    <string name="type">system:site</string>
+    <string name="type">portal:site</string>
     <property-set name="data">
       <string name="description">The Features Site.</string>
       <property-set name="moduleConfig">

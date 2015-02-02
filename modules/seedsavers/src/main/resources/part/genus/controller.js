@@ -6,7 +6,7 @@ function handleGet() {
     var reqComponent = execute('portal.getComponent');
     var view = resolve('./genus.html');
     var genus;
-    if (reqContent.type == "system:page-template") {
+    if (reqContent.type == "portal:page-template") {
         genus = {
             scientificName: "Scientific name",
             norwegianNames: ["navn1", "navn2", "navn3"]

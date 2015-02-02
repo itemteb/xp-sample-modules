@@ -6,7 +6,7 @@
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">the-irish-washerwoman.mp3</string>
-        <string name="type">system:audio</string>
+      <string name="type">media:audio</string>
         <property-set name="data">
             <string name="media">the-irish-washerwoman.mp3</string>
             <string name="mimeType">audio/mp3</string>

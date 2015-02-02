@@ -6,7 +6,7 @@
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Templates</string>
-        <string name="type">system:template-folder</string>
+      <string name="type">portal:template-folder</string>
         <property-set name="data"/>
     </data>
     <indexConfigs>

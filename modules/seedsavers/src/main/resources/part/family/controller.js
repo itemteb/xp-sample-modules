@@ -6,7 +6,7 @@ function handleGet(req) {
     var reqComponent = execute('portal.getComponent');
     var view = resolve('./family.html');
     var family;
-    if (reqContent.type == "system:page-template") {
+    if (reqContent.type == "portal:page-template") {
         family = {
             scientificName : "Scientific name",
             norwegianNames: ["navn1", "navn2", "navn3"]

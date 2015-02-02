@@ -6,7 +6,7 @@
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">SpotifyInstaller.zip</string>
-        <string name="type">system:archive</string>
+      <string name="type">media:archive</string>
         <property-set name="data">
             <string name="media">SpotifyInstaller.zip</string>
             <string name="mimeType">application/zip</string>
