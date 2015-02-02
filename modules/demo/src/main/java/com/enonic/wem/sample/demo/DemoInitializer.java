@@ -1,16 +1,19 @@
 package com.enonic.wem.sample.demo;
 
+import java.util.concurrent.Callable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.io.ByteSource;
 import com.google.common.io.Resources;
 
-import com.enonic.wem.api.content.Content;
 import com.enonic.wem.api.content.ContentPath;
 import com.enonic.wem.api.content.ContentService;
 import com.enonic.wem.api.content.CreateContentParams;
 import com.enonic.wem.api.content.CreateMediaParams;
+import com.enonic.wem.api.context.ContextAccessor;
+import com.enonic.wem.api.context.ContextBuilder;
 import com.enonic.wem.api.data.PropertyTree;
 import com.enonic.wem.api.form.Form;
 import com.enonic.wem.api.form.Input;
@@ -33,6 +36,7 @@ import com.enonic.wem.api.security.UserStoreKey;
 import com.enonic.wem.api.security.acl.UserStoreAccess;
 import com.enonic.wem.api.security.acl.UserStoreAccessControlEntry;
 import com.enonic.wem.api.security.acl.UserStoreAccessControlList;
+import com.enonic.wem.api.security.auth.AuthenticationInfo;
 
 public final class DemoInitializer
     implements DataInitializer
@@ -78,9 +82,12 @@ public final class DemoInitializer
     public void initialize()
         throws Exception
     {
-        createImages();
-        createUserStore();
-        createPrincipals();
+        runAsAdmin( () -> {
+            createImages();
+            createUserStore();
+            createPrincipals();
+            return null;
+        } );
     }
 
     private boolean hasContent( final ContentPath path )
@@ -210,9 +217,8 @@ public final class DemoInitializer
         if ( userStore == null )
         {
             final UserStoreAccessControlList permissions = UserStoreAccessControlList.of(
+                UserStoreAccessControlEntry.create().principal( RoleKeys.ADMIN ).access( UserStoreAccess.ADMINISTRATOR ).build(),
                 UserStoreAccessControlEntry.create().principal( DEVELOPERS ).access( UserStoreAccess.USER_STORE_MANAGER ).build(),
-                UserStoreAccessControlEntry.create().principal( PrincipalKey.ofUser( USER_STORE_KEY, "tsi" ) ).access(
-                    UserStoreAccess.ADMINISTRATOR ).build(),
                 UserStoreAccessControlEntry.create().principal( CONSULTANTS ).access( UserStoreAccess.CREATE_USERS ).build() );
             final CreateUserStoreParams createUserStoreParams = CreateUserStoreParams.create().
                 key( USER_STORE_KEY ).
@@ -396,6 +402,12 @@ public final class DemoInitializer
                 build() ).
 
             build();
+    }
+
+    private <T> T runAsAdmin( Callable<T> runnable )
+    {
+        final AuthenticationInfo authInfo = AuthenticationInfo.create().principals( RoleKeys.ADMIN ).user( User.ANONYMOUS ).build();
+        return ContextBuilder.from( ContextAccessor.current() ).authInfo( authInfo ).build().callWith( runnable );
     }
 
     public void setContentService( final ContentService contentService )
