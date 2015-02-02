@@ -1,5 +1,7 @@
 package com.enonic.wem.sample.features;
 
+import java.util.concurrent.Callable;
+
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 import org.slf4j.Logger;
@@ -9,6 +11,8 @@ import com.enonic.wem.api.content.Content;
 import com.enonic.wem.api.content.ContentPath;
 import com.enonic.wem.api.content.ContentService;
 import com.enonic.wem.api.content.CreateContentParams;
+import com.enonic.wem.api.context.ContextAccessor;
+import com.enonic.wem.api.context.ContextBuilder;
 import com.enonic.wem.api.data.PropertyTree;
 import com.enonic.wem.api.export.ExportService;
 import com.enonic.wem.api.export.ImportNodesParams;
@@ -17,6 +21,9 @@ import com.enonic.wem.api.initializer.DataInitializer;
 import com.enonic.wem.api.node.NodePath;
 import com.enonic.wem.api.schema.content.ContentTypeName;
 import com.enonic.wem.api.security.PrincipalKey;
+import com.enonic.wem.api.security.RoleKeys;
+import com.enonic.wem.api.security.User;
+import com.enonic.wem.api.security.auth.AuthenticationInfo;
 import com.enonic.wem.api.vfs.VirtualFile;
 import com.enonic.wem.api.vfs.VirtualFiles;
 
@@ -31,6 +38,15 @@ public final class FeaturesInitializer
 
     @Override
     public void initialize()
+        throws Exception
+    {
+        runAs( RoleKeys.CONTENT_MANAGER, () -> {
+            doInitialize();
+            return null;
+        } );
+    }
+
+    private void doInitialize()
         throws Exception
     {
         if ( hasContent( ContentPath.from( "/features" ) ) )
@@ -136,4 +152,9 @@ public final class FeaturesInitializer
         }
     }
 
+    private <T> T runAs( final PrincipalKey role, final Callable<T> runnable )
+    {
+        final AuthenticationInfo authInfo = AuthenticationInfo.create().principals( role ).user( User.ANONYMOUS ).build();
+        return ContextBuilder.from( ContextAccessor.current() ).authInfo( authInfo ).build().callWith( runnable );
+    }
 }

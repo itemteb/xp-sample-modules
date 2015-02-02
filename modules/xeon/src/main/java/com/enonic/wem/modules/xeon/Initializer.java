@@ -1,5 +1,7 @@
 package com.enonic.wem.modules.xeon;
 
+import java.util.concurrent.Callable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,12 +21,18 @@ import com.enonic.wem.api.content.site.CreateSiteParams;
 import com.enonic.wem.api.content.site.ModuleConfig;
 import com.enonic.wem.api.content.site.ModuleConfigs;
 import com.enonic.wem.api.content.site.Site;
+import com.enonic.wem.api.context.ContextAccessor;
+import com.enonic.wem.api.context.ContextBuilder;
 import com.enonic.wem.api.data.PropertyTree;
 import com.enonic.wem.api.initializer.DataInitializer;
 import com.enonic.wem.api.module.ModuleKey;
 import com.enonic.wem.api.schema.content.ContentTypeName;
 import com.enonic.wem.api.schema.content.ContentTypeNames;
 import com.enonic.wem.api.schema.content.ContentTypeService;
+import com.enonic.wem.api.security.PrincipalKey;
+import com.enonic.wem.api.security.RoleKeys;
+import com.enonic.wem.api.security.User;
+import com.enonic.wem.api.security.auth.AuthenticationInfo;
 
 @SuppressWarnings("UnusedDeclaration")
 public final class Initializer
@@ -48,6 +56,15 @@ public final class Initializer
     {
         LOG.info( "initialize...." );
 
+        runAs( RoleKeys.CONTENT_MANAGER, () -> {
+            doInitialize();
+            return null;
+        } );
+    }
+
+    public void doInitialize()
+        throws Exception
+    {
         if ( !this.hasContent( xeonFolder ) )
         {
             final ModuleConfig moduleConfig = ModuleConfig.newModuleConfig().
@@ -60,7 +77,7 @@ public final class Initializer
 
             createPageTemplateHomePage( site.getPath() );
             createPageTemplateBannerPage( site.getPath() );
-            createPageTemplatePresonPage( site.getPath() );
+            createPageTemplatePersonPage( site.getPath() );
         }
     }
 
@@ -125,7 +142,7 @@ public final class Initializer
                 build() ) );
     }
 
-    private Content createPageTemplatePresonPage( final ContentPath sitePath )
+    private Content createPageTemplatePersonPage( final ContentPath sitePath )
     {
         final ContentTypeNames supports = ContentTypeNames.from( ContentTypeName.from( THIS_MODULE, "person" ) );
 
@@ -155,6 +172,12 @@ public final class Initializer
         {
             return false;
         }
+    }
+
+    private <T> T runAs( final PrincipalKey role, final Callable<T> runnable )
+    {
+        final AuthenticationInfo authInfo = AuthenticationInfo.create().principals( role ).user( User.ANONYMOUS ).build();
+        return ContextBuilder.from( ContextAccessor.current() ).authInfo( authInfo ).build().callWith( runnable );
     }
 
     public void setContentService( final ContentService contentService )

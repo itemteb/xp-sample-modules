@@ -54,7 +54,7 @@ public final class DemoInitializer
 
     private static final Form MEDIA_IMAGE_FORM = createMediaImageForm();
 
-    private static final String IMAGE_ARCHIVE_PATH_ELEMENT = "imagearchive";
+    private static final String IMAGE_ARCHIVE_PATH_ELEMENT = "image-archive";
 
     private static final UserStoreKey USER_STORE_KEY = new UserStoreKey( "enonic" );
 
@@ -82,10 +82,9 @@ public final class DemoInitializer
     public void initialize()
         throws Exception
     {
-        runAsAdmin( () -> {
+        runAs( RoleKeys.ADMIN, () -> {
             createImages();
             createUserStore();
-            createPrincipals();
             return null;
         } );
     }
@@ -226,6 +225,8 @@ public final class DemoInitializer
                 permissions( permissions ).
                 build();
             securityService.createUserStore( createUserStoreParams );
+
+            createPrincipals();
         }
     }
 
@@ -404,9 +405,9 @@ public final class DemoInitializer
             build();
     }
 
-    private <T> T runAsAdmin( Callable<T> runnable )
+    private <T> T runAs( final PrincipalKey role, final Callable<T> runnable )
     {
-        final AuthenticationInfo authInfo = AuthenticationInfo.create().principals( RoleKeys.ADMIN ).user( User.ANONYMOUS ).build();
+        final AuthenticationInfo authInfo = AuthenticationInfo.create().principals( role ).user( User.ANONYMOUS ).build();
         return ContextBuilder.from( ContextAccessor.current() ).authInfo( authInfo ).build().callWith( runnable );
     }
 
