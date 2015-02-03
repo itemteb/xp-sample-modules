@@ -1,0 +1,9 @@
+<div class="row" data-live-edit-type="layout" style="background-color: #fff; padding-top: 30px; padding-bottom: 30px;">
+
+    <div data-live-edit-type="region" class="col-md-8 col-md-offset-2">
+        <div data-th-each="component : ${leftRegion.components}" data-th-remove="tag">
+            <div data-wem-component="${component.path}" data-th-remove="tag"/>
+        </div>
+    </div>
+
+</div>
