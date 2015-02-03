@@ -7,8 +7,8 @@ function getMenuProperties(content) {
     };
 
     var menuProps;
-    if( content.hasMetadata("system:menu-item") ) {
-        menuProps = content.getMetadata("system:menu-item").toMap();
+    if (content.hasMetadata("menu-item")) {
+        menuProps = content.getMetadata("menu-item").toMap();
     }
     else {
         menuProps = defaultMenu;

@@ -11,7 +11,7 @@
           <string name="supports">base:folder</string>
         </property-set>
         <property-set name="meta">
-            <property-set name="system:menu-item">
+          <property-set name="menu-item">
                 <boolean name="menuItem">false</boolean>
                 <string name="menuName"></string>
             </property-set>

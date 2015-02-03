@@ -9,7 +9,7 @@
   </vendor>
   <dependencies system-min-version="5.0.0" system-max-version="6.0.0"/>
   <content>
-    <meta-step mixin="system:menu-item"/>
+    <meta-step mixin="menu-item"/>
   </content>
   <config>
   </config>
