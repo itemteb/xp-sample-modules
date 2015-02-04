@@ -56,7 +56,7 @@ public final class Initializer
     {
         LOG.info( "initialize...." );
 
-        runAs( RoleKeys.CONTENT_MANAGER, () -> {
+        runAs( RoleKeys.CONTENT_MANAGER_ADMIN, () -> {
             doInitialize();
             return null;
         } );

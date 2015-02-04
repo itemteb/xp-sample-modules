@@ -278,6 +278,9 @@ public final class DemoInitializer
         addMember( employees.getKey(), con.getKey() );
         addMember( employees.getKey(), op.getKey() );
 
+        addMember( RoleKeys.CONTENT_MANAGER_APP, employees.getKey() );
+        addMember( RoleKeys.USER_MANAGER_APP, dev.getKey() );
+
         final User mer = createUser( "mer", "Morten Eriksen", EMPLOYEES, OSLO );
         final User tsi = createUser( "tsi", "Thomas Sigdestad", EMPLOYEES, OSLO );
 

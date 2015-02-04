@@ -40,7 +40,7 @@ public final class FeaturesInitializer
     public void initialize()
         throws Exception
     {
-        runAs( RoleKeys.CONTENT_MANAGER, () -> {
+        runAs( RoleKeys.CONTENT_MANAGER_ADMIN, () -> {
             doInitialize();
             return null;
         } );
