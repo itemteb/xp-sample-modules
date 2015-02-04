@@ -2,17 +2,12 @@
 <content-type>
   <display-name>Nested Form Item Sets</display-name>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <form-item-set name="level-1">
       <label>Level 1</label>
       <items>
         <input name="myTextLine" type="TextLine">
           <label>My text line</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
@@ -21,7 +16,6 @@
           <items>
             <input name="myTextLine" type="TextLine">
               <label>My text line</label>
-              <immutable>false</immutable>
               <indexed>true</indexed>
               <occurrences minimum="0" maximum="1"/>
             </input>
@@ -30,7 +24,6 @@
               <items>
                 <input name="myTextLine" type="TextLine">
                   <label>My text line</label>
-                  <immutable>false</immutable>
                   <indexed>true</indexed>
                   <occurrences minimum="1" maximum="1"/>
                 </input>
@@ -39,24 +32,19 @@
                   <items>
                     <input name="myTextLine" type="TextLine">
                       <label>My text line</label>
-                      <immutable>false</immutable>
                       <indexed>true</indexed>
                       <occurrences minimum="1" maximum="1"/>
                     </input>
                   </items>
-                  <immutable>false</immutable>
                   <occurrences minimum="1" maximum="0"/>
                 </form-item-set>
               </items>
-              <immutable>false</immutable>
               <occurrences minimum="1" maximum="0"/>
             </form-item-set>
           </items>
-          <immutable>false</immutable>
           <occurrences minimum="1" maximum="0"/>
         </form-item-set>
       </items>
-      <immutable>false</immutable>
       <occurrences minimum="0" maximum="0"/>
     </form-item-set>
   </form>

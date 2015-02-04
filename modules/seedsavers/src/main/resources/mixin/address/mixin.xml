@@ -4,14 +4,12 @@
   <items>
     <form-item-set name="address">
       <label>Adresse</label>
-      <immutable>false</immutable>
-      <custom-text />
+      <custom-text/>
       <help-text />
       <occurrences minimum="0" maximum="0" />
       <items>
         <input type="TextLine" name="street">
           <label>Gate</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text />
           <help-text />
@@ -19,7 +17,6 @@
         </input>
         <input type="TextLine" name="postalCode">
           <label>Postnr</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text />
           <help-text />
@@ -27,7 +24,6 @@
         </input>
         <input type="TextLine" name="postalPlace">
           <label>Poststed</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text />
           <help-text />

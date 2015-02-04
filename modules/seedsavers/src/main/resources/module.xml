@@ -14,8 +14,6 @@
   <config>
     <input type="SingleSelector" name="language">
       <label>Language</label>
-      <immutable>false</immutable>
-      <indexed>false</indexed>
       <custom-text/>
       <help-text/>
       <occurrences minimum="0" maximum="1"/>
@@ -35,7 +33,6 @@
     </input>
     <input type="TextLine" name="requiredTest">
       <label>Required test</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>

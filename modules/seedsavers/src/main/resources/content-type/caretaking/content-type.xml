@@ -3,14 +3,9 @@
   <display-name>Ivaretakelse</display-name>
   <content-display-name-script/>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <input type="Relationship" name="variety">
       <label>Sort</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>
@@ -21,7 +16,6 @@
     </input>
     <input type="Relationship" name="caretaker">
       <label>Caretaker</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>
@@ -32,7 +26,6 @@
     </input>
     <input type="Relationship" name="origin">
       <label>Origin</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>
@@ -43,7 +36,6 @@
     </input>
     <input type="Date" name="since">
       <label>Ivaretatt siden</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>

@@ -2,14 +2,9 @@
 <content-type>
   <display-name>Image selector</display-name>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <input name="imageselector_min0_max1" type="ImageSelector">
       <label>One not required</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="0" maximum="1"/>
       <config>
@@ -18,7 +13,6 @@
     </input>
     <input name="imageselector_min1_max1" type="ImageSelector">
       <label>One required</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="1" maximum="1"/>
       <config>
@@ -27,7 +21,6 @@
     </input>
     <input name="imageselector_min0_max0" type="ImageSelector">
       <label>Infinite</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="0" maximum="0"/>
       <config>
@@ -36,7 +29,6 @@
     </input>
     <input name="imageselector_min2_max4" type="ImageSelector">
       <label>Min 2, Max 4</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="2" maximum="4"/>
       <config>

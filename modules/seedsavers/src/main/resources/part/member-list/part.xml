@@ -4,8 +4,6 @@
   <config>
     <input name="maxCount" type="Long">
       <label>Max count</label>
-      <immutable>false</immutable>
-      <indexed>false</indexed>
       <occurrences minimum="0" maximum="1"/>
     </input>
   </config>

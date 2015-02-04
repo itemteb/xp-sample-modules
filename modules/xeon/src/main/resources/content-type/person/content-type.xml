@@ -3,17 +3,12 @@
   <display-name>Person</display-name>
   <content-display-name-script>$('first-name') + ' ' + $('last-name')</content-display-name-script>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <field-set name="basic">
       <label>Person info</label>
       <items>
         <input type="TextLine" name="first-name">
           <label>First name</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -21,7 +16,6 @@
         </input>
         <input type="TextLine" name="middle-name">
           <label>Middle name</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -29,7 +23,6 @@
         </input>
         <input type="TextLine" name="last-name">
           <label>Last name</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -37,8 +30,6 @@
         </input>
         <input type="ImageSelector" name="image">
           <label>Photo</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <custom-text/>
           <help-text/>
           <occurrences minimum="1" maximum="1"/>
@@ -48,7 +39,6 @@
         </input>
         <input type="TextLine" name="job-title">
           <label>Job title</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -56,7 +46,6 @@
         </input>
         <input type="TextArea" name="bio">
           <label>Bio</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>

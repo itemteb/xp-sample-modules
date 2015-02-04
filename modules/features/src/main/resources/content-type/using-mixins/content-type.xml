@@ -2,18 +2,12 @@
 <content-type>
   <display-name>Using Mixins</display-name>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <form-item-set name="addresses">
       <label>Addresses</label>
       <items>
         <input name="label" type="TextLine">
           <label>Label</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
           <help-text>Give this address a label</help-text>
         </input>
@@ -24,7 +18,6 @@
           <reference>com.enonic.wem.modules.features:norwegian-county</reference>
         </mixin-reference>
       </items>
-      <immutable>false</immutable>
       <occurrences minimum="0" maximum="0"/>
     </form-item-set>
   </form>

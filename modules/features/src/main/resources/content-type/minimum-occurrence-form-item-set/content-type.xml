@@ -2,15 +2,9 @@
 <content-type>
   <display-name>FormItemSet Minimum Occurrences</display-name>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <input name="name" type="TextLine">
       <label>Name</label>
-      <immutable>false</immutable>
-      <indexed>false</indexed>
       <occurrences minimum="1" maximum="1"/>
       <help-text>First name</help-text>
     </input>
@@ -19,18 +13,13 @@
       <items>
         <input name="label" type="TextLine">
           <label>Label</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
         <input name="value" type="TextLine">
           <label>Value</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
       </items>
-      <immutable>false</immutable>
       <occurrences minimum="3" maximum="0"/>
     </form-item-set>
     <form-item-set name="minimum2">
@@ -38,18 +27,13 @@
       <items>
         <input name="label" type="TextLine">
           <label>Label</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
         <input name="value" type="TextLine">
           <label>Value</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
       </items>
-      <immutable>false</immutable>
       <occurrences minimum="2" maximum="0"/>
     </form-item-set>
     <form-item-set name="minimum1">
@@ -57,18 +41,13 @@
       <items>
         <input name="label" type="TextLine">
           <label>Label</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
         <input name="value" type="TextLine">
           <label>Value</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
       </items>
-      <immutable>false</immutable>
       <occurrences minimum="1" maximum="0"/>
     </form-item-set>
     <form-item-set name="minimum0">
@@ -76,18 +55,13 @@
       <items>
         <input name="label" type="TextLine">
           <label>Label</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
         <input name="value" type="TextLine">
           <label>Value</label>
-          <immutable>false</immutable>
-          <indexed>false</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
       </items>
-      <immutable>false</immutable>
       <occurrences minimum="0" maximum="0"/>
     </form-item-set>
   </form>

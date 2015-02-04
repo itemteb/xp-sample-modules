@@ -4,8 +4,6 @@
   <config>
     <input name="test" type="TextLine">
       <label>Test input from page descriptor</label>
-      <immutable>false</immutable>
-      <indexed>false</indexed>
       <occurrences minimum="0" maximum="2"/>
     </input>
   </config>

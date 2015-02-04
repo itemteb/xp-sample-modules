@@ -2,14 +2,9 @@
 <content-type>
   <display-name>Combo box</display-name>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <input name="combobox_min0_max1" type="ComboBox">
       <label>One not required</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="0" maximum="1"/>
       <config>
@@ -31,7 +26,6 @@
     </input>
     <input name="combobox_min1_max1" type="ComboBox">
       <label>Required ONE</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="1" maximum="1"/>
       <config>
@@ -53,7 +47,6 @@
     </input>
     <input name="combobox_min0_max0" type="ComboBox">
       <label>Not required, Unlimited</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="0" maximum="0"/>
       <config>
@@ -75,7 +68,6 @@
     </input>
     <input name="combobox_min0_max3" type="ComboBox">
       <label>Not required, Max 3</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="0" maximum="3"/>
       <config>
@@ -101,7 +93,6 @@
     </input>
     <input name="combobox_min2_max4" type="ComboBox">
       <label>Required 2, Max 4</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <occurrences minimum="2" maximum="4"/>
       <config>

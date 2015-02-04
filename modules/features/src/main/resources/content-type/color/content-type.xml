@@ -2,10 +2,6 @@
 <content-type>
   <display-name>Color</display-name>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <input name="color" type="Color">
       <label>Color</label>
@@ -15,7 +11,6 @@
     </input>
     <input name="requiredColor" type="Color">
       <label>Required Color</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text>Custom text</custom-text>
       <occurrences minimum="1" maximum="0"/>

@@ -3,14 +3,9 @@
   <display-name>Genus</display-name>
   <content-display-name-script/>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <input type="TextLine" name="norwegianNames">
       <label>Andre norske navn</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>
@@ -18,7 +13,6 @@
     </input>
     <input type="Relationship" name="family">
       <label>Familie</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>

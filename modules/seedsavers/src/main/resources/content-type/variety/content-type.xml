@@ -3,14 +3,9 @@
   <display-name>Variety</display-name>
   <content-display-name-script/>
   <super-type>base:structured</super-type>
-  <is-abstract>false</is-abstract>
-  <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
-  <allow-child-content>true</allow-child-content>
   <form>
     <input type="TextLine" name="binomialName">
       <label>Binomialt navn</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>
@@ -21,7 +16,6 @@
       <items>
         <input type="Relationship" name="genus">
           <label>Slekt</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -34,7 +28,6 @@
     </field-set>
     <input type="TextLine" name="norwegianNames">
       <label>Andre norske navn</label>
-      <immutable>false</immutable>
       <indexed>true</indexed>
       <custom-text/>
       <help-text/>
@@ -45,7 +38,6 @@
       <items>
         <input type="TextLine" name="swedishNames">
           <label>Svenske navn</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -53,7 +45,6 @@
         </input>
         <input type="TextLine" name="danishNames">
           <label>Danske navn</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -61,7 +52,6 @@
         </input>
         <input type="TextLine" name="finnishNames">
           <label>Finske navn</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -69,7 +59,6 @@
         </input>
         <input type="TextLine" name="englishNames">
           <label>Engelske navn</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -77,7 +66,6 @@
         </input>
         <input type="TextLine" name="germanNames">
           <label>Tyske navn</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -85,7 +73,6 @@
         </input>
         <input type="TextLine" name="frenchNames">
           <label>Franske navn</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -93,7 +80,6 @@
         </input>
         <input type="TextLine" name="spanishNames">
           <label>Spanske navn</label>
-          <immutable>false</immutable>
           <indexed>true</indexed>
           <custom-text/>
           <help-text/>
@@ -103,8 +89,6 @@
     </field-set>
     <input type="ImageSelector" name="pictures">
       <label>Bilder</label>
-      <immutable>false</immutable>
-      <indexed>false</indexed>
       <custom-text/>
       <help-text/>
       <occurrences minimum="0" maximum="0"/>

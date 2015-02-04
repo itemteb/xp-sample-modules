@@ -4,8 +4,6 @@
   <items>
     <input type="SingleSelector" name="norwegianCounty">
       <label>Norwegian county</label>
-      <immutable>false</immutable>
-      <indexed>false</indexed>
       <custom-text/>
       <help-text/>
       <occurrences minimum="0" maximum="1"/>
