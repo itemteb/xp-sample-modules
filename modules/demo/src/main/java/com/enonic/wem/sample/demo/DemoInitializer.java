@@ -131,28 +131,28 @@ public final class DemoInitializer
 
         final ContentPath imageArchivePath = contentService.create( createFolder().
             parent( ContentPath.ROOT ).
-            displayName( "Image Archive" ) ).getPath();
+            displayName( "Image Archive" ).build() ).getPath();
 
         contentService.create( createFolder().
             parent( imageArchivePath ).
-            displayName( "Misc" ) );
+            displayName( "Misc" ).build() );
 
         contentService.create( createFolder().
             parent( imageArchivePath ).
-            displayName( "People" ) );
+            displayName( "People" ).build() );
 
         ContentPath trampolinerPath = contentService.create( createFolder().
             parent( imageArchivePath ).
-            displayName( "Trampoliner" ) ).getPath();
+            displayName( "Trampoliner" ).build() ).getPath();
 
         final ContentPath folderImagesBig = contentService.create( createFolder().
             parent( trampolinerPath ).
-            displayName( "Jumping Jack - Big Bounce" ) ).getPath();
+            displayName( "Jumping Jack - Big Bounce" ).build() ).getPath();
 
         final ContentPath folderImagesPop = contentService.create( createFolder().
             parent( trampolinerPath ).
             displayName( "Jumping Jack - Pop" ).
-            type( ContentTypeName.folder() ) ).getPath();
+            type( ContentTypeName.folder() ).build() ).getPath();
 
         for ( final String fileName : FOLDER_IMAGES_BIG )
         {
@@ -201,9 +201,9 @@ public final class DemoInitializer
         }
     }
 
-    private CreateContentParams createFolder()
+    private CreateContentParams.Builder createFolder()
     {
-        return new CreateContentParams().
+        return CreateContentParams.create().
             owner( PrincipalKey.ofAnonymous() ).
             contentData( new PropertyTree() ).
             type( ContentTypeName.folder() );

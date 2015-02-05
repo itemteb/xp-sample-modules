@@ -77,27 +77,27 @@ public final class Initializer
 
             contentService.create( createFolder().
                 parent( seedSaversFolder ).
-                displayName( "Members" ) );
+                displayName( "Members" ).build() );
 
             final Content families = contentService.create( createFolder().
                 parent( seedSaversFolder ).
-                displayName( "Families" ) );
+                displayName( "Families" ).build() );
 
             createFamilies( families.getPath() );
 
             final Content genuses = contentService.create( createFolder().
                 parent( seedSaversFolder ).
-                displayName( "Genus" ) );
+                displayName( "Genus" ).build() );
 
             createGenuses( genuses.getPath() );
 
             contentService.create( createFolder().
                 parent( seedSaversFolder ).
-                displayName( "Varieties" ) );
+                displayName( "Varieties" ).build() );
 
             contentService.create( createFolder().
                 parent( seedSaversFolder ).
-                displayName( "Caretakings" ) );
+                displayName( "Caretakings" ).build() );
 
             createMembers();
         }
@@ -105,13 +105,13 @@ public final class Initializer
 
     private void createMembers()
     {
-        contentService.create( createMember( "Åse Kålrot" ) );
-        contentService.create( createMember( "Guri Gulrot" ) );
-        contentService.create( createMember( "Johan Støver" ) );
-        contentService.create( createMember( "Jørund Vier Skriubakken" ) );
-        contentService.create( createMember( "Kari Korn" ) );
-        contentService.create( createMember( "Per Kål" ) );
-        contentService.create( createMember( "Petter Skvaller" ) );
+        contentService.create( createMember( "Åse Kålrot" ).build() );
+        contentService.create( createMember( "Guri Gulrot" ).build() );
+        contentService.create( createMember( "Johan Støver" ).build() );
+        contentService.create( createMember( "Jørund Vier Skriubakken" ).build() );
+        contentService.create( createMember( "Kari Korn" ).build() );
+        contentService.create( createMember( "Per Kål" ).build() );
+        contentService.create( createMember( "Petter Skvaller" ).build() );
     }
 
     private CreateSiteParams createSiteContent( final String displayName, final String description, final ModuleConfigs moduleConfigs )
@@ -123,20 +123,20 @@ public final class Initializer
             parent( ContentPath.ROOT );
     }
 
-    private CreateContentParams createFolder()
+    private CreateContentParams.Builder createFolder()
     {
-        return new CreateContentParams().
+        return CreateContentParams.create().
             owner( PrincipalKey.ofAnonymous() ).
             contentData( new PropertyTree() ).
             type( ContentTypeName.folder() );
     }
 
-    private CreateContentParams createMember( final String displayName )
+    private CreateContentParams.Builder createMember( final String displayName )
     {
         final ContentTypeName contentType = MEMBER_CONTENT_TYPE_NAME;
         final PropertyTree data = new PropertyTree();
         data.setString( "name", displayName );
-        return new CreateContentParams().
+        return CreateContentParams.create().
             displayName( displayName ).
             owner( PrincipalKey.ofAnonymous() ).
             contentData( data ).
@@ -147,24 +147,24 @@ public final class Initializer
     private void createFamilies( final ContentPath parentPath )
     {
         Content family = contentService.create( createFamily( "Plantaginaceae", "Kjempefamilien" ).
-            parent( parentPath ) );
+            parent( parentPath ).build() );
         familyByDisplayName.put( family.getDisplayName(), family );
 
         family = contentService.create( createFamily( "Verbenaceae", "Jernurtfamilien" ).
-            parent( parentPath ) );
+            parent( parentPath ).build() );
         familyByDisplayName.put( family.getDisplayName(), family );
 
         family = contentService.create( createFamily( "Lamiaceae", "Leppeblomstfamilien" ).
-            parent( parentPath ) );
+            parent( parentPath ).build() );
         familyByDisplayName.put( family.getDisplayName(), family );
     }
 
-    private CreateContentParams createFamily( final String scientificName, final String norwegianName )
+    private CreateContentParams.Builder createFamily( final String scientificName, final String norwegianName )
     {
         final PropertyTree data = new PropertyTree();
         data.addString( "norwegianNames", norwegianName );
 
-        return new CreateContentParams().
+        return CreateContentParams.create().
             displayName( scientificName ).
             owner( PrincipalKey.ofAnonymous() ).
             contentData( data ).
@@ -174,14 +174,15 @@ public final class Initializer
     private void createGenuses( final ContentPath parentPath )
     {
         contentService.create( createGenus( "Plantago", "Grodblad", "Plantaginaceae" ).
-            parent( parentPath ) );
+            parent( parentPath ).build() );
         contentService.create( createGenus( "Antirrhinum", "Løvemunnslekta", "Plantaginaceae" ).
-            parent( parentPath ) );
+            parent( parentPath ).build() );
         contentService.create( createGenus( "Digitalis", "Revebjelleslekta", "Plantaginaceae" ).
-            parent( parentPath ) );
+            parent( parentPath ).build() );
     }
 
-    private CreateContentParams createGenus( final String scientificName, final String norwegianName, final String familyDisplayName )
+    private CreateContentParams.Builder createGenus( final String scientificName, final String norwegianName,
+                                                     final String familyDisplayName )
     {
         final Content family = this.familyByDisplayName.get( familyDisplayName );
         final PropertyTree data = new PropertyTree();
@@ -191,7 +192,7 @@ public final class Initializer
             data.addReference( "family", Reference.from( family.getId().toString() ) );
         }
 
-        return new CreateContentParams().
+        return CreateContentParams.create().
             displayName( scientificName ).
             owner( PrincipalKey.ofAnonymous() ).
             contentData( data ).

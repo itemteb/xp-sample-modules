@@ -32,9 +32,9 @@ public class BundleMediaImporter
         this.creator = builder.creator;
     }
 
-    private CreateContentParams makeFolder()
+    private CreateContentParams.Builder makeFolder()
     {
-        return new CreateContentParams().
+        return CreateContentParams.create().
             owner( creator ).
             contentData( new PropertyTree() ).
             type( ContentTypeName.folder() );
@@ -55,7 +55,7 @@ public class BundleMediaImporter
             {
                 final ContentPath contentParentPath = ContentPath.from( destination, ContentPath.from( parentPath ).asRelative() );
 
-                contentService.create( makeFolder().displayName( name ).parent( contentParentPath ) );
+                contentService.create( makeFolder().displayName( name ).parent( contentParentPath ).build() );
             }
 
             @Override
