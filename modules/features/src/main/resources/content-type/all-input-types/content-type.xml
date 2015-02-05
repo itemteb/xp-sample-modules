@@ -42,9 +42,7 @@
     <input name="myImageSelector" type="ImageSelector">
       <label>ImageSelector</label>
       <occurrences minimum="0" maximum="0"/>
-      <config>
-        <relationship-type>system:related-image</relationship-type>
-      </config>
+      <config/>
     </input>
     <input name="myHtmlArea" type="HtmlArea">
       <label>HtmlArea</label>
@@ -54,7 +52,7 @@
       <label>Long</label>
       <occurrences minimum="0" maximum="0"/>
     </input>
-    <input name="myRelationship" type="Relationship">
+    <input name="myRelationship" type="ContentSelector">
       <label>Relationship (like)</label>
       <occurrences minimum="0" maximum="0"/>
       <config>

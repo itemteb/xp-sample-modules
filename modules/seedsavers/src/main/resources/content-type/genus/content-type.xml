@@ -11,7 +11,7 @@
       <help-text/>
       <occurrences minimum="0" maximum="0"/>
     </input>
-    <input type="Relationship" name="family">
+    <input type="ContentSelector" name="family">
       <label>Familie</label>
       <indexed>true</indexed>
       <custom-text/>

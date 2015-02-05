@@ -14,7 +14,7 @@
     <field-set name="scientificClassification">
       <label>Klassifisering</label>
       <items>
-        <input name="genus" type="Relationship">
+        <input name="genus" type="ContentSelector">
           <label>Slekt</label>
           <indexed>true</indexed>
           <custom-text></custom-text>
@@ -91,10 +91,8 @@
       <label>Bilder</label>
       <custom-text></custom-text>
       <occurrences minimum="0" maximum="0"/>
-      <config>
-        <relationship-type>system:related-image</relationship-type>
-      </config>
       <help-text></help-text>
+      <config/>
     </input>
   </form>
 </content-type>

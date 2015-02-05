@@ -4,7 +4,7 @@
   <content-display-name-script/>
   <super-type>base:structured</super-type>
   <form>
-    <input type="Relationship" name="variety">
+    <input type="ContentSelector" name="variety">
       <label>Sort</label>
       <indexed>true</indexed>
       <custom-text/>
@@ -14,7 +14,7 @@
         <relationship-type>com.enonic.wem.modules.seedsavers:variety-rel</relationship-type>
       </config>
     </input>
-    <input type="Relationship" name="caretaker">
+    <input type="ContentSelector" name="caretaker">
       <label>Caretaker</label>
       <indexed>true</indexed>
       <custom-text/>
@@ -24,7 +24,7 @@
         <relationship-type>com.enonic.wem.modules.seedsavers:member-rel</relationship-type>
       </config>
     </input>
-    <input type="Relationship" name="origin">
+    <input type="ContentSelector" name="origin">
       <label>Origin</label>
       <indexed>true</indexed>
       <custom-text/>

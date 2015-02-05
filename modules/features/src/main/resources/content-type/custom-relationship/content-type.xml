@@ -4,7 +4,7 @@
   <display-name>Custom Relationship</display-name>
   <super-type>base:structured</super-type>
   <form>
-    <input name="cited-in" type="Relationship">
+    <input name="cited-in" type="ContentSelector">
       <label>Cited In</label>
       <custom-text/>
       <help-text/>
@@ -13,7 +13,7 @@
         <relationship-type>com.enonic.wem.modules.features:citation</relationship-type>
       </config>
     </input>
-    <input name="media-in-use" type="Relationship">
+    <input name="media-in-use" type="ContentSelector">
       <label>Media in use</label>
       <occurrences minimum="1" maximum="1"/>
       <config>

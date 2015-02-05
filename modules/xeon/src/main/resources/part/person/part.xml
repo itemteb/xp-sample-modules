@@ -2,7 +2,7 @@
 <part-component>
   <display-name>Person</display-name>
   <config>
-    <input type="Relationship" name="person">
+    <input type="ContentSelector" name="person">
       <label>Person</label>
       <custom-text/>
       <help-text/>
