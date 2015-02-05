@@ -21,7 +21,7 @@
       <help-text/>
       <occurrences minimum="0" maximum="0"/>
       <config>
-        <relationship-type>system:like</relationship-type>
+        <relationship-type>system:reference</relationship-type>
       </config>
     </input>
         <field-set name="variants">
