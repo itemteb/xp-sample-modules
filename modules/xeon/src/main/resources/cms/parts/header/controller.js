@@ -1,4 +1,4 @@
-var xeon = require('xeon');
+var xeon = require('/cms/lib/xeon');
 var thymeleaf = require('/cms/lib/view/thymeleaf');
 
 function handleGet(req) {
