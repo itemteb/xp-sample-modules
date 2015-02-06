@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title data-th-text="${reqContent.displayName}">Seed Savers</title>
+</head>
+
+<body data-live-edit-type="page" data-th-class="${editable}? 'edit'">
+
+<div id="topRegion"
+     data-live-edit-type="region">
+
+    <div data-th-if="${reqContent.cms.pages.regions['top']}" data-th-remove="tag">
+        <div data-th-each="component : ${reqContent.cms.pages.regions['top'].components}" data-th-remove="tag">
+            <div data-wem-component="${component.path}" data-th-remove="tag"/>
+        </div>
+    </div>
+</div>
+<div id="mainRegion"
+     data-live-edit-type="region">
+
+    <div data-th-if="${reqContent.cms.pages.regions['main']}" data-th-remove="tag">
+        <div data-th-each="component : ${reqContent.cms.pages.regions['main'].components}" data-th-remove="tag">
+            <div data-wem-component="${component.path}" data-th-remove="tag"/>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
