@@ -1,16 +1,10 @@
 var menuService = require('menu');
-var contentService = require('contentService');
 
 exports.getLogoUrl = function (req, moduleConfig) {
-    var logoContent;
-    var logo = moduleConfig['logo'];
-    if (logo) {
-        logoContent = contentService.getContentById(logo);
-    }
-
-    if (logoContent) {
+    var logoContentId = moduleConfig['logo'];
+    if (logoContentId) {
         return execute('portal.imageUrl', {
-            id: logoContent.id,
+            id: logoContentId,
             filter: 'scaleblock(115,26)'
         });
     } else {
