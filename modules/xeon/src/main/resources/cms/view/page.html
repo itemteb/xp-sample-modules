@@ -28,7 +28,7 @@
           href="../public/images/ico/apple-touch-icon-57-precomposed.png"/>
 </head>
 
-<body data-live-edit-type="page" data-spy="scroll" data-th-class="${editable}? 'edit'" data-th-id="${banner}? 'banner-page'"
+<body data-portal-component-type="page" data-spy="scroll" data-th-class="${editable}? 'edit'" data-th-id="${banner}? 'banner-page'"
       data-target="#navbar" data-offset="0">
 <header id="header" role="banner">
     <div class="container">
@@ -86,7 +86,7 @@
     <!--/#main-slider-->
 </div>
 
-<div id="main" class="container" data-live-edit-type="region"
+<div id="main" class="container" data-portal-component-type="region"
      data-th-attr="data-live-edit-name=${mainRegion.name},data-live-edit-region=${mainRegion.regionPath}">
     <div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
         <div data-wem-component="${component.path}" data-th-remove="tag"/>

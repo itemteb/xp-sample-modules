@@ -25,7 +25,7 @@
       <link href="{portal:createResourceUrl('css/bootstrap-responsive.css')}" rel="stylesheet"/>
     </head>
 
-    <body data-live-edit-type="page" data-live-edit-key="{{path}}">
+      <body data-portal-component-type="page" data-live-edit-key="{{path}}">
     <script src="{portal:createResourceUrl('js/jquery.js')}"></script>
 
     <xsl:copy-of select="portal:includeComponent('xslt-header')"/>

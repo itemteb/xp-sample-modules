@@ -1,16 +1,16 @@
-<div data-th-attr="data-live-edit-type=${component.type}"
+<div data-th-attr="data-portal-component-type=${component.type}"
      style="margin: 0 auto; width: 100%; background: transparent; overflow: hidden;">
-    <div data-live-edit-type="region" style="float: left; width: 20%;">
+    <div data-portal-component-type="region" style="float: left; width: 20%;">
         <div data-th-each="component : ${leftRegion.components}" data-th-remove="tag">
             <div data-wem-component="${component.path}" data-th-remove="tag"/>
         </div>
     </div>
-    <div data-live-edit-type="region" style="float: left; width: 60%;">
+    <div data-portal-component-type="region" style="float: left; width: 60%;">
         <div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
             <div data-wem-component="${component.path}" data-th-remove="tag"/>
         </div>
     </div>
-    <div data-live-edit-type="region" style="float: left; width: 20%;">
+    <div data-portal-component-type="region" style="float: left; width: 20%;">
         <div data-th-each="component : ${rightRegion.components}" data-th-remove="tag">
             <div data-wem-component="${component.path}" data-th-remove="tag"/>
         </div>

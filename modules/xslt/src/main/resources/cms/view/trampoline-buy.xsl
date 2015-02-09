@@ -13,7 +13,7 @@
 
   <xsl:template match="/">
     <div class="row-fluid"
-         data-live-edit-type="{$componentType}">
+         data-portal-component-type="{$componentType}">
 
       <div class="span8">
         <img id="bounce-image" src="{portal:createResourceUrl('img/Prod_stor_studsmattor_Elite_rod.jpg')}" alt=""/>

@@ -12,7 +12,7 @@
   <xsl:param name="componentType" select="''"/>
 
   <xsl:template match="/">
-    <div data-live-edit-type="{$componentType}">
+    <div data-portal-component-type="{$componentType}">
       <h3>Kommentarer</h3>
 
       <div class="media">

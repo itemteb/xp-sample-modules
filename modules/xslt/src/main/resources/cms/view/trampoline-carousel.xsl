@@ -15,7 +15,7 @@
 
     <div id="myCarousel"
          class="carousel slide"
-         data-live-edit-type="{$componentType}">
+         data-portal-component-type="{$componentType}">
 
       <div class="carousel-inner">
         <div class="item active">

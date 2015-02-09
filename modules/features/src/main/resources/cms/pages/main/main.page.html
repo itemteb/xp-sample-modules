@@ -8,12 +8,12 @@
     <title data-th-text="${reqContent.displayName}">main page controller</title>
 </head>
 
-<body data-live-edit-type="page" data-th-class="${editable}? 'edit'">
+<body data-portal-component-type="page" data-th-class="${editable}? 'edit'">
 
 <div data-th-include="com.enonic.wem.modules.features:/view/fragments/menu.html :: siteMenu" data-th-remove="tag">Footer</div>
 
 <div id="mainRegion"
-     data-live-edit-type="region">
+     data-portal-component-type="region">
 
     Components in main:
     <div data-th-if="${reqContent.cms.pages.regions['main']}" data-th-remove="tag">

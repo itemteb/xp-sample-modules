@@ -8,12 +8,12 @@
     <title data-th-text="${content.displayName}">Seed Savers</title>
 </head>
 
-<body data-live-edit-type="page" data-th-class="${editable}? 'edit'">
+<body data-portal-component-type="page" data-th-class="${editable}? 'edit'">
 
 <h1>Genus</h1>
 
 <div id="mainRegion"
-     data-live-edit-type="region">
+     data-portal-component-type="region">
 
     <div data-th-if="${mainRegion}" data-th-remove="tag">
         <div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">

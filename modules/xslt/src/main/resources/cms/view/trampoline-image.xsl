@@ -15,7 +15,7 @@
   <xsl:param name="imageUrl" select="''"/>
 
   <xsl:template match="/">
-    <div data-live-edit-type="{$componentType}">
+    <div data-portal-component-type="{$componentType}">
 
       <img src="{$imageUrl}"/>
 
