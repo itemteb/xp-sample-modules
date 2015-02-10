@@ -11,12 +11,8 @@
           <occurrences minimum="0" maximum="1"/>
           <help-text>Give this address a label</help-text>
         </input>
-        <mixin-reference name="address">
-          <reference>com.enonic.wem.modules.features:address</reference>
-        </mixin-reference>
-        <mixin-reference name="county">
-          <reference>com.enonic.wem.modules.features:norwegian-county</reference>
-        </mixin-reference>
+        <inline mixin="com.enonic.wem.modules.features:address"/>
+        <inline mixin="com.enonic.wem.modules.features:norwegian-county"/>
       </items>
       <occurrences minimum="0" maximum="0"/>
     </form-item-set>

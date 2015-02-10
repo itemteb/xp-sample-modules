@@ -11,9 +11,6 @@
       <help-text/>
       <occurrences minimum="0" maximum="1"/>
     </input>
-    <mixin-reference name="address">
-      <reference>com.enonic.wem.modules.seedsavers:address</reference>
-    </mixin-reference>
-
+    <inline mixin="com.enonic.wem.modules.seedsavers:address"/>
   </form>
 </content-type>
