@@ -22,8 +22,6 @@
       <help-text/>
       <occurrences minimum="0" maximum="0"/>
       <config>
-        <!--<relationship-type>system:reference</relationship-type>-->
-        <allow-content-type>media:image</allow-content-type>
         <allow-content-type>com.enonic.wem.modules.xeon:person</allow-content-type>
       </config>
     </input>

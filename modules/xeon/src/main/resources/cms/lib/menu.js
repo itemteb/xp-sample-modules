@@ -30,7 +30,6 @@ function getSubMenus(parentContent, levels) {
         key: parentContent._id,
         count: 100
     });
-    log.info("%s", JSON.stringify(children));
     levels--;
 
     var subMenus = [];
