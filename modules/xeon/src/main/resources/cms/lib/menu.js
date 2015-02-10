@@ -9,11 +9,11 @@ function isInteger(x) {
  * @return {Boolean} true if the content is marked as menu item
  */
 function isMenuItem(content) {
-    var meta = content.meta;
-    if (!meta) {
+    var extraData = content.x;
+    if (!extraData) {
         return false;
     }
-    var menuItemMetadata = meta['menu-item'] || {};
+    var menuItemMetadata = extraData['menu-item'] || {};
     var menuItemValue = menuItemMetadata['menuItem'];
     return menuItemValue;
 }
@@ -30,7 +30,7 @@ function getSubMenus(parentContent, levels) {
         key: parentContent._id,
         count: 100
     });
-
+    log.info("%s", JSON.stringify(children));
     levels--;
 
     var subMenus = [];
@@ -58,7 +58,7 @@ function menuItemToJson(content, levels) {
 
     return {
         displayName: content.displayName,
-        menuName: content.meta['menu-item'].menuName || '',
+        menuName: content.x['menu-item'].menuName || '',
         path: content._path,
         name: content._name,
         id: content._id,

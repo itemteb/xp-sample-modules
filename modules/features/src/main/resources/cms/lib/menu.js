@@ -3,13 +3,13 @@ function isInteger(x) {
 }
 
 function isMenuItem(content) {
-    var meta = content.meta;
-    if (!meta) {
+    var extraData = content.x;
+    if (!extraData) {
         return false;
     }
-    var menuItemMetadata = meta['features-menu-item'] || {};
+    var menuItemMetadata = extraData['features-menu-item'] || {};
     var menuItemValue = menuItemMetadata.menuItem;
-    return menuItemValue && menuItemValue[0];
+    return menuItemValue;
 }
 
 function getChildMenuItems(parentContent, levels) {
@@ -41,7 +41,7 @@ function menuItemToJson(content, levels) {
     
     return {
         displayName: content.displayName,
-        menuName: content.meta['features-menu-item'].menuName[0],
+        menuName: content.x['features-menu-item'].menuName,
         path: content._path,
         name: content._name,
         id: content._id,
