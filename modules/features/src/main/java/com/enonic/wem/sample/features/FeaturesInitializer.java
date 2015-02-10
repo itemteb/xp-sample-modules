@@ -60,7 +60,9 @@ public final class FeaturesInitializer
 
         final NodeImportResult nodeImportResult = this.exportService.importNodes( ImportNodesParams.create().
             source( source ).
-            targetPath( NodePath.newPath( "/content" ).build() ).
+            targetNodePath( NodePath.newPath( "/content" ).build() ).
+            includeNodeIds( true ).
+            dryRun( false ).
             build() );
 
         logImport( nodeImportResult );
