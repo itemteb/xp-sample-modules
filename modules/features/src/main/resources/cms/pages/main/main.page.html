@@ -10,18 +10,18 @@
 
 <body data-portal-component-type="page" data-th-class="${editable}? 'edit'">
 
-<div data-th-include="com.enonic.wem.modules.features:/view/fragments/menu.html :: siteMenu" data-th-remove="tag">Footer</div>
+<div data-th-include="com.enonic.wem.modules.features:/cms/view/fragments/menu.html :: siteMenu" data-th-remove="tag">Footer</div>
 
 <div id="mainRegion"
      data-portal-component-type="region">
 
     Components in main:
-    <div data-th-if="${reqContent.cms.pages.regions['main']}" data-th-remove="tag">
-        <div data-th-each="component : ${reqContent.cms.pages.regions['main'].components}" data-th-remove="tag">
+    <div data-th-if="${reqContent.page.regions['main']}" data-th-remove="tag">
+        <div data-th-each="component : ${reqContent.page.regions['main'].components}" data-th-remove="tag">
             <div data-wem-component="${component.path}" data-th-remove="tag"></div>
         </div>
     </div>
 </div>
-<div data-th-include="com.enonic.wem.modules.features:/view/fragments/footer.html :: copy">Footer</div>
+<div data-th-include="com.enonic.wem.modules.features:/cms/view/fragments/footer.html :: copy">Footer</div>
 </body>
 </html>
