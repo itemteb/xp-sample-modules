@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>d4cf1085-cb65-4523-a6e9-10406e1e107e</id>
-    <childOrder>_modifiedtime DESC</childOrder>
+    <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
-        <boolean name="valid">false</boolean>
+        <boolean name="valid">true</boolean>
         <string name="displayName">image</string>
-      <string name="type">base:folder</string>
+        <string name="type">base:folder</string>
+        <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:anonymous</string>
+        <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
         <property-set name="data"/>
+        <property-set name="x">
+            <property-set name="features-menu-item">
+                <boolean name="menuItem">false</boolean>
+                <string name="menuName"></string>
+            </property-set>
+        </property-set>
     </data>
     <indexConfigs>
         <analyzer>content_default</analyzer>
@@ -47,7 +57,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-                <path>draft</path>
+                <path>valid</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
