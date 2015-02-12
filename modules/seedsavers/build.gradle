@@ -1,9 +1,0 @@
-apply plugin: 'com.enonic.xp.gradle.module'
-
-module {
-    displayName = 'Seed Savers Module'
-}
-
-dependencies {
-    compile 'com.enonic.xp:core-api:5.0.0-SNAPSHOT'
-}

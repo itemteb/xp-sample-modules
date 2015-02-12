@@ -4,6 +4,9 @@ import java.util.concurrent.Callable;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +22,6 @@ import com.enonic.wem.api.data.PropertyTree;
 import com.enonic.wem.api.export.ExportService;
 import com.enonic.wem.api.export.ImportNodesParams;
 import com.enonic.wem.api.export.NodeImportResult;
-import com.enonic.wem.api.initializer.DataInitializer;
 import com.enonic.wem.api.node.NodePath;
 import com.enonic.wem.api.schema.content.ContentTypeName;
 import com.enonic.wem.api.security.PrincipalKey;
@@ -32,8 +34,8 @@ import com.enonic.wem.api.security.auth.AuthenticationInfo;
 import com.enonic.wem.api.vfs.VirtualFile;
 import com.enonic.wem.api.vfs.VirtualFiles;
 
+@Component(immediate = true)
 public final class FeaturesInitializer
-    implements DataInitializer
 {
 
     private static final AccessControlList PERMISSIONS =
@@ -47,7 +49,7 @@ public final class FeaturesInitializer
 
     private final Logger LOG = LoggerFactory.getLogger( FeaturesInitializer.class );
 
-    @Override
+    @Activate
     public void initialize()
         throws Exception
     {
@@ -111,10 +113,7 @@ public final class FeaturesInitializer
 
         LOG.info( "-------------------" );
         LOG.info( "Binaries:" );
-        for ( final String binaryRef : nodeImportResult.getExportedBinaries() )
-        {
-            LOG.info( binaryRef );
-        }
+        nodeImportResult.getExportedBinaries().forEach( LOG::info );
 
         LOG.info( "-------------------" );
         LOG.info( "Errors:" );
@@ -145,13 +144,13 @@ public final class FeaturesInitializer
         }
     }
 
-    @SuppressWarnings("UnusedDeclaration")
+    @Reference
     public void setExportService( final ExportService exportService )
     {
         this.exportService = exportService;
     }
 
-    @SuppressWarnings("UnusedDeclaration")
+    @Reference
     public void setContentService( final ContentService contentService )
     {
         this.contentService = contentService;

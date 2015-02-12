@@ -1,5 +1,8 @@
 package com.enonic.wem.modules.xslt;
 
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,15 +20,12 @@ import com.enonic.wem.api.content.site.ModuleConfig;
 import com.enonic.wem.api.content.site.ModuleConfigs;
 import com.enonic.wem.api.content.site.Site;
 import com.enonic.wem.api.data.PropertyTree;
-import com.enonic.wem.api.initializer.DataInitializer;
 import com.enonic.wem.api.module.ModuleKey;
 import com.enonic.wem.api.schema.content.ContentTypeName;
 import com.enonic.wem.api.schema.content.ContentTypeNames;
-import com.enonic.wem.api.schema.content.ContentTypeService;
 
-@SuppressWarnings("UnusedDeclaration")
+@Component(immediate = true)
 public final class Initializer
-    implements DataInitializer
 {
     private final static Logger LOG = LoggerFactory.getLogger( Initializer.class );
 
@@ -37,10 +37,7 @@ public final class Initializer
 
     private PageTemplateService pageTemplateService;
 
-    private ContentTypeService contentTypeService;
-
-
-    @Override
+    @Activate
     public void initialize()
         throws Exception
     {
@@ -101,18 +98,15 @@ public final class Initializer
         }
     }
 
+    @Reference
     public void setContentService( final ContentService contentService )
     {
         this.contentService = contentService;
     }
 
+    @Reference
     public void setPageTemplateService( final PageTemplateService pageTemplateService )
     {
         this.pageTemplateService = pageTemplateService;
-    }
-
-    public void setContentTypeService( final ContentTypeService contentTypeService )
-    {
-        this.contentTypeService = contentTypeService;
     }
 }

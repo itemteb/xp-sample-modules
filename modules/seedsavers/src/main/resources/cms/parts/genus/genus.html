@@ -1,9 +1,0 @@
-<article data-th-attr="data-portal-component-type=${component.type}">
-
-    <h2 data-th-text="${genus.scientificName}">displayName</h2>
-    <h3>Norske navn</h3>
-    <span data-th-each="norwegianName,iterStat : ${genus.norwegianNames}" th:inline="text">
-        [[${norwegianName}]][[${ not iterStat.last } ? ',' : '']]
-    </span>
-
-</article>
