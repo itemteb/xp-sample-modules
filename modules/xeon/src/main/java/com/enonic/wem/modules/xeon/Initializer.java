@@ -5,9 +5,11 @@ import java.util.concurrent.Callable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.enonic.wem.api.content.ApplyContentPermissionsParams;
 import com.enonic.wem.api.content.Content;
 import com.enonic.wem.api.content.ContentPath;
 import com.enonic.wem.api.content.ContentService;
+import com.enonic.wem.api.content.UpdateContentParams;
 import com.enonic.wem.api.content.page.CreatePageTemplateParams;
 import com.enonic.wem.api.content.page.DescriptorKey;
 import com.enonic.wem.api.content.page.PageRegions;
@@ -32,6 +34,9 @@ import com.enonic.wem.api.schema.content.ContentTypeService;
 import com.enonic.wem.api.security.PrincipalKey;
 import com.enonic.wem.api.security.RoleKeys;
 import com.enonic.wem.api.security.User;
+import com.enonic.wem.api.security.acl.AccessControlEntry;
+import com.enonic.wem.api.security.acl.AccessControlList;
+import com.enonic.wem.api.security.acl.Permission;
 import com.enonic.wem.api.security.auth.AuthenticationInfo;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -41,6 +46,11 @@ public final class Initializer
     private final static Logger LOG = LoggerFactory.getLogger( Initializer.class );
 
     public static final ModuleKey THIS_MODULE = ModuleKey.from( Initializer.class );
+
+    private static final AccessControlList PERMISSIONS =
+        AccessControlList.of( AccessControlEntry.create().principal( PrincipalKey.ofAnonymous() ).allow( Permission.READ ).build(),
+                              AccessControlEntry.create().principal( RoleKeys.EVERYONE ).allow( Permission.READ ).build(),
+                              AccessControlEntry.create().principal( RoleKeys.AUTHENTICATED ).allowAll().build() );
 
     private ContentPath xeonFolder = ContentPath.from( "/xeon" );
 
@@ -74,10 +84,20 @@ public final class Initializer
             final ModuleConfigs moduleConfigs = ModuleConfigs.from( moduleConfig );
 
             final Site site = contentService.create( createSiteContent( "Xeon", "Xeon demo site.", moduleConfigs ) );
+            final UpdateContentParams setSitePermissions = new UpdateContentParams().
+                contentId( site.getId() ).
+                editor( ( content ) -> {
+                    content.permissions = PERMISSIONS;
+                    content.inheritPermissions = false;
+                } );
+            contentService.update( setSitePermissions );
 
             createPageTemplateHomePage( site.getPath() );
             createPageTemplateBannerPage( site.getPath() );
             createPageTemplatePersonPage( site.getPath() );
+
+            contentService.applyPermissions(
+                ApplyContentPermissionsParams.create().contentId( site.getId() ).modifier( PrincipalKey.ofAnonymous() ).build() );
         }
     }
 

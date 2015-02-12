@@ -7,10 +7,12 @@ import org.osgi.framework.FrameworkUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.enonic.wem.api.content.ApplyContentPermissionsParams;
 import com.enonic.wem.api.content.Content;
 import com.enonic.wem.api.content.ContentPath;
 import com.enonic.wem.api.content.ContentService;
 import com.enonic.wem.api.content.CreateContentParams;
+import com.enonic.wem.api.content.UpdateContentParams;
 import com.enonic.wem.api.context.ContextAccessor;
 import com.enonic.wem.api.context.ContextBuilder;
 import com.enonic.wem.api.data.PropertyTree;
@@ -23,6 +25,9 @@ import com.enonic.wem.api.schema.content.ContentTypeName;
 import com.enonic.wem.api.security.PrincipalKey;
 import com.enonic.wem.api.security.RoleKeys;
 import com.enonic.wem.api.security.User;
+import com.enonic.wem.api.security.acl.AccessControlEntry;
+import com.enonic.wem.api.security.acl.AccessControlList;
+import com.enonic.wem.api.security.acl.Permission;
 import com.enonic.wem.api.security.auth.AuthenticationInfo;
 import com.enonic.wem.api.vfs.VirtualFile;
 import com.enonic.wem.api.vfs.VirtualFiles;
@@ -30,6 +35,12 @@ import com.enonic.wem.api.vfs.VirtualFiles;
 public final class FeaturesInitializer
     implements DataInitializer
 {
+
+    private static final AccessControlList PERMISSIONS =
+        AccessControlList.of( AccessControlEntry.create().principal( PrincipalKey.ofAnonymous() ).allow( Permission.READ ).build(),
+                              AccessControlEntry.create().principal( RoleKeys.EVERYONE ).allow( Permission.READ ).build(),
+                              AccessControlEntry.create().principal( RoleKeys.AUTHENTICATED ).allowAll().build() );
+
     private ContentService contentService;
 
     private ExportService exportService;
@@ -49,7 +60,8 @@ public final class FeaturesInitializer
     private void doInitialize()
         throws Exception
     {
-        if ( hasContent( ContentPath.from( "/features" ) ) )
+        final ContentPath featuresPath = ContentPath.from( "/features" );
+        if ( hasContent( featuresPath ) )
         {
             return;
         }
@@ -68,6 +80,24 @@ public final class FeaturesInitializer
         logImport( nodeImportResult );
 
         createLargeTree();
+
+        // set permissions
+        final Content featuresContent = contentService.getByPath( featuresPath );
+        if ( featuresContent != null )
+        {
+            final UpdateContentParams setFeaturesPermissions = new UpdateContentParams().
+                contentId( featuresContent.getId() ).
+                editor( ( content ) -> {
+                    content.permissions = PERMISSIONS;
+                    content.inheritPermissions = false;
+                } );
+            contentService.update( setFeaturesPermissions );
+
+            contentService.applyPermissions( ApplyContentPermissionsParams.create().
+                contentId( featuresContent.getId() ).
+                modifier( PrincipalKey.ofAnonymous() ).
+                build() );
+        }
     }
 
     private void logImport( final NodeImportResult nodeImportResult )
@@ -99,7 +129,8 @@ public final class FeaturesInitializer
         return CreateContentParams.create().
             owner( PrincipalKey.ofAnonymous() ).
             contentData( new PropertyTree() ).
-            type( ContentTypeName.folder() );
+            type( ContentTypeName.folder() ).
+            inheritPermissions( true );
     }
 
     private boolean hasContent( final ContentPath path )
@@ -134,7 +165,10 @@ public final class FeaturesInitializer
             contentService.create( makeFolder().
                 name( "large-tree" ).
                 displayName( "Large tree" ).
-                parent( ContentPath.ROOT ).build() );
+                parent( ContentPath.ROOT ).
+                permissions( PERMISSIONS ).
+                inheritPermissions( false ).
+                build() );
 
             for ( int i = 1; i <= 2; i++ )
             {

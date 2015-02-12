@@ -33,6 +33,9 @@ import com.enonic.wem.api.security.SecurityService;
 import com.enonic.wem.api.security.User;
 import com.enonic.wem.api.security.UserStore;
 import com.enonic.wem.api.security.UserStoreKey;
+import com.enonic.wem.api.security.acl.AccessControlEntry;
+import com.enonic.wem.api.security.acl.AccessControlList;
+import com.enonic.wem.api.security.acl.Permission;
 import com.enonic.wem.api.security.acl.UserStoreAccess;
 import com.enonic.wem.api.security.acl.UserStoreAccessControlEntry;
 import com.enonic.wem.api.security.acl.UserStoreAccessControlList;
@@ -42,6 +45,11 @@ public final class DemoInitializer
     implements DataInitializer
 {
     private final static Logger LOG = LoggerFactory.getLogger( DemoInitializer.class );
+
+    private static final AccessControlList PERMISSIONS =
+        AccessControlList.of( AccessControlEntry.create().principal( PrincipalKey.ofAnonymous() ).allow( Permission.READ ).build(),
+                              AccessControlEntry.create().principal( RoleKeys.EVERYONE ).allow( Permission.READ ).build(),
+                              AccessControlEntry.create().principal( RoleKeys.AUTHENTICATED ).allowAll().build() );
 
     private static final String[] FOLDER_IMAGES_POP =
         {"Pop_01.jpg", "Pop_02.jpg", "Pop_03.jpg", "Pop_04.jpg", "Pop_05.jpg", "Pop_06.jpg", "Pop_07.jpg", "Pop_08.jpg", "Pop-Black.jpg",
@@ -131,7 +139,10 @@ public final class DemoInitializer
 
         final ContentPath imageArchivePath = contentService.create( createFolder().
             parent( ContentPath.ROOT ).
-            displayName( "Image Archive" ).build() ).getPath();
+            displayName( "Image Archive" ).
+            permissions( PERMISSIONS ).
+            inheritPermissions( false ).
+            build() ).getPath();
 
         contentService.create( createFolder().
             parent( imageArchivePath ).
@@ -206,7 +217,8 @@ public final class DemoInitializer
         return CreateContentParams.create().
             owner( PrincipalKey.ofAnonymous() ).
             contentData( new PropertyTree() ).
-            type( ContentTypeName.folder() );
+            type( ContentTypeName.folder() ).
+            inheritPermissions( true );
     }
 
     private void createUserStore()
