@@ -2,6 +2,9 @@ package com.enonic.wem.sample.demo;
 
 import java.util.concurrent.Callable;
 
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,14 +18,8 @@ import com.enonic.wem.api.content.CreateMediaParams;
 import com.enonic.wem.api.context.ContextAccessor;
 import com.enonic.wem.api.context.ContextBuilder;
 import com.enonic.wem.api.data.PropertyTree;
-import com.enonic.wem.api.form.Form;
-import com.enonic.wem.api.form.Input;
-import com.enonic.wem.api.form.inputtype.InputTypes;
-import com.enonic.wem.api.initializer.DataInitializer;
 import com.enonic.wem.api.schema.content.ContentTypeName;
-import com.enonic.wem.api.schema.content.ContentTypeService;
 import com.enonic.wem.api.security.CreateGroupParams;
-import com.enonic.wem.api.security.CreateRoleParams;
 import com.enonic.wem.api.security.CreateUserParams;
 import com.enonic.wem.api.security.CreateUserStoreParams;
 import com.enonic.wem.api.security.Group;
@@ -41,8 +38,8 @@ import com.enonic.wem.api.security.acl.UserStoreAccessControlEntry;
 import com.enonic.wem.api.security.acl.UserStoreAccessControlList;
 import com.enonic.wem.api.security.auth.AuthenticationInfo;
 
+@Component(immediate = true)
 public final class DemoInitializer
-    implements DataInitializer
 {
     private final static Logger LOG = LoggerFactory.getLogger( DemoInitializer.class );
 
@@ -59,8 +56,6 @@ public final class DemoInitializer
         {"Big Bounce - R\u00f8d Tattoo.jpg", "Big Bounce - R\u00f8d.jpg", "Big Bounce_01.jpg", "Big Bounce_02.jpg", "Big Bounce_03.jpg",
             "Big Bounce_04.jpg", "Big Bounce_05.jpg", "Big Bounce_06.jpg", "Big Bounce_07.jpg", "Big Bounce_08.jpg", "Big Bounce_10.jpg",
             "Big Bounce_11.jpg", "Big Bounce_12.jpg"};
-
-    private static final Form MEDIA_IMAGE_FORM = createMediaImageForm();
 
     private static final String IMAGE_ARCHIVE_PATH_ELEMENT = "image-archive";
 
@@ -82,11 +77,9 @@ public final class DemoInitializer
 
     private ContentService contentService;
 
-    private ContentTypeService contentTypeService;
-
     private SecurityService securityService;
 
-    @Override
+    @Activate
     public void initialize()
         throws Exception
     {
@@ -293,29 +286,29 @@ public final class DemoInitializer
         addMember( RoleKeys.CONTENT_MANAGER_APP, employees.getKey() );
         addMember( RoleKeys.USER_MANAGER_APP, dev.getKey() );
 
-        final User mer = createUser( "mer", "Morten Eriksen", EMPLOYEES, OSLO );
-        final User tsi = createUser( "tsi", "Thomas Sigdestad", EMPLOYEES, OSLO );
+        createUser( "mer", "Morten Eriksen", EMPLOYEES, OSLO );
+        createUser( "tsi", "Thomas Sigdestad", EMPLOYEES, OSLO );
 
-        final User aro = createUser( "aro", "Alex Rodr\u00EDguez", DEVELOPERS, OSLO );
-        final User jvs = createUser( "jvs", "J\u00F8rund Skriubakken", DEVELOPERS, OSLO );
-        final User jsi = createUser( "jsi", "J\u00F8rgen Sivesind", DEVELOPERS, OSLO );
-        final User rmy = createUser( "rmy", "Runar Myklebust", DEVELOPERS, OSLO );
-        final User srs = createUser( "srs", "Sten Roger Sandvik", DEVELOPERS, OSLO );
-        final User tlo = createUser( "tlo", "Tor L\u00F8kken", DEVELOPERS, OSLO );
+        createUser( "aro", "Alex Rodr\u00EDguez", DEVELOPERS, OSLO );
+        createUser( "jvs", "J\u00F8rund Skriubakken", DEVELOPERS, OSLO );
+        createUser( "jsi", "J\u00F8rgen Sivesind", DEVELOPERS, OSLO );
+        createUser( "rmy", "Runar Myklebust", DEVELOPERS, OSLO );
+        createUser( "srs", "Sten Roger Sandvik", DEVELOPERS, OSLO );
+        createUser( "tlo", "Tor L\u00F8kken", DEVELOPERS, OSLO );
 
-        final User pmi = createUser( "pmi", "Pavel Milkevich", DEVELOPERS, MINSK );
-        final User vbr = createUser( "vbr", "Vlachaslau Bradnitski", DEVELOPERS, MINSK );
-        final User mta = createUser( "mta", "Mikita Taukachou", DEVELOPERS, MINSK );
-        final User sig = createUser( "sig", "Siarhei Gauruseu", DEVELOPERS, MINSK );
+        createUser( "pmi", "Pavel Milkevich", DEVELOPERS, MINSK );
+        createUser( "vbr", "Vlachaslau Bradnitski", DEVELOPERS, MINSK );
+        createUser( "mta", "Mikita Taukachou", DEVELOPERS, MINSK );
+        createUser( "sig", "Siarhei Gauruseu", DEVELOPERS, MINSK );
 
-        final User bhj = createUser( "bhj", "Bj\u00F8rnar Hjelmevold", CONSULTANTS, OSLO );
-        final User bwe = createUser( "bwe", "Bobby Westberg", CONSULTANTS, OSLO );
-        final User mla = createUser( "mla", "Michael Lazell", CONSULTANTS, SAN_FRANCISCO );
-        final User oda = createUser( "oda", "\u00D8yvind Dahl", CONSULTANTS, OSLO );
-        final User rfo = createUser( "rfo", "Rune Forberg", CONSULTANTS, OSLO );
+        createUser( "bhj", "Bj\u00F8rnar Hjelmevold", CONSULTANTS, OSLO );
+        createUser( "bwe", "Bobby Westberg", CONSULTANTS, OSLO );
+        createUser( "mla", "Michael Lazell", CONSULTANTS, SAN_FRANCISCO );
+        createUser( "oda", "\u00D8yvind Dahl", CONSULTANTS, OSLO );
+        createUser( "rfo", "Rune Forberg", CONSULTANTS, OSLO );
 
-        final User esu = createUser( "esu", "Erik Sunde", OPERATIONS, OSLO );
-        final User mbe = createUser( "mbe", "Marek Bettman", OPERATIONS, OSLO );
+        createUser( "esu", "Erik Sunde", OPERATIONS, OSLO );
+        createUser( "mbe", "Marek Bettman", OPERATIONS, OSLO );
     }
 
     private User createUser( final String userName, final String displayName, final PrincipalKey... memberships )
@@ -389,56 +382,22 @@ public final class DemoInitializer
         return null;
     }
 
-    private void addRole( final CreateRoleParams createRole )
-    {
-        try
-        {
-            if ( !securityService.getRole( createRole.getKey() ).isPresent() )
-            {
-                securityService.createRole( createRole );
-                LOG.info( "Role created: " + createRole.getKey().toString() );
-            }
-        }
-        catch ( Throwable t )
-        {
-            LOG.error( "Unable to initialize role: " + createRole.getKey().toString(), t );
-        }
-    }
-
-    private static Form createMediaImageForm()
-
-    {
-        return Form.newForm().
-            addFormItem( Input.newInput().name( "image" ).
-                inputType( InputTypes.IMAGE_UPLOADER ).build() ).
-            addFormItem( Input.newInput().name( "mimeType" ).
-                inputType( InputTypes.TEXT_LINE ).
-                label( "Mime type" ).
-                occurrences( 1, 1 ).
-                build() ).
-
-            build();
-    }
-
     private <T> T runAs( final PrincipalKey role, final Callable<T> runnable )
     {
         final AuthenticationInfo authInfo = AuthenticationInfo.create().principals( role ).user( User.ANONYMOUS ).build();
         return ContextBuilder.from( ContextAccessor.current() ).authInfo( authInfo ).build().callWith( runnable );
     }
 
+    @Reference
     public void setContentService( final ContentService contentService )
     {
         this.contentService = contentService;
     }
 
-    public void setContentTypeService( final ContentTypeService contentTypeService )
-    {
-        this.contentTypeService = contentTypeService;
-    }
-
+    @Reference
     public void setSecurityService( final SecurityService securityService )
     {
         this.securityService = securityService;
     }
-
 }
+
