@@ -73,7 +73,7 @@ public final class FeaturesInitializer
         final VirtualFile source = VirtualFiles.from( bundle, "/import" );
 
         final NodeImportResult nodeImportResult = this.exportService.importNodes( ImportNodesParams.create().
-            sourceDirectory( "/import" ).
+            source( source ).
             targetNodePath( NodePath.newPath( "/content" ).build() ).
             includeNodeIds( true ).
             dryRun( false ).
