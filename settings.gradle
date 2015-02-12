@@ -1,4 +1,3 @@
-//include 'seedsavers'
 include 'xeon'
 include 'xslt'
 include 'demo'
