@@ -1,7 +1,7 @@
 apply plugin: 'com.enonic.xp.gradle.module'
 
 module {
-    // name = 'com.enonic.wem.modules.features'
+    // name = 'com.enonic.xp.modules.features'
     displayName = 'Features Module'
     url = 'https://github.com/enonic/wem-sample-modules'
     vendorName = 'Enonic AS'
