@@ -1,28 +1,39 @@
 package com.enonic.wem.modules.xslt;
 
+import java.util.concurrent.Callable;
+
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.enonic.wem.api.content.ApplyContentPermissionsParams;
 import com.enonic.wem.api.content.Content;
 import com.enonic.wem.api.content.ContentPath;
 import com.enonic.wem.api.content.ContentService;
+import com.enonic.wem.api.content.UpdateContentParams;
 import com.enonic.wem.api.content.page.CreatePageTemplateParams;
 import com.enonic.wem.api.content.page.DescriptorKey;
 import com.enonic.wem.api.content.page.PageRegions;
 import com.enonic.wem.api.content.page.PageTemplateService;
-import com.enonic.wem.api.content.page.region.PartComponent;
-import com.enonic.wem.api.content.page.region.Region;
 import com.enonic.wem.api.content.site.CreateSiteParams;
 import com.enonic.wem.api.content.site.ModuleConfig;
 import com.enonic.wem.api.content.site.ModuleConfigs;
 import com.enonic.wem.api.content.site.Site;
+import com.enonic.wem.api.context.ContextAccessor;
+import com.enonic.wem.api.context.ContextBuilder;
 import com.enonic.wem.api.data.PropertyTree;
 import com.enonic.wem.api.module.ModuleKey;
 import com.enonic.wem.api.schema.content.ContentTypeName;
 import com.enonic.wem.api.schema.content.ContentTypeNames;
+import com.enonic.wem.api.security.PrincipalKey;
+import com.enonic.wem.api.security.RoleKeys;
+import com.enonic.wem.api.security.User;
+import com.enonic.wem.api.security.acl.AccessControlEntry;
+import com.enonic.wem.api.security.acl.AccessControlList;
+import com.enonic.wem.api.security.acl.Permission;
+import com.enonic.wem.api.security.auth.AuthenticationInfo;
 
 @Component(immediate = true)
 public final class Initializer
@@ -31,7 +42,10 @@ public final class Initializer
 
     public static final ModuleKey THIS_MODULE = ModuleKey.from( Initializer.class );
 
-    private ContentPath xsltSitePath = ContentPath.from( "/xslt" );
+    private static final AccessControlList PERMISSIONS =
+        AccessControlList.of( AccessControlEntry.create().principal( PrincipalKey.ofAnonymous() ).allow( Permission.READ ).build(),
+                              AccessControlEntry.create().principal( RoleKeys.EVERYONE ).allow( Permission.READ ).build(),
+                              AccessControlEntry.create().principal( RoleKeys.AUTHENTICATED ).allowAll().build() );
 
     private ContentService contentService;
 
@@ -41,20 +55,48 @@ public final class Initializer
     public void initialize()
         throws Exception
     {
-        LOG.info( "initialize...." );
+        runAs( RoleKeys.ADMIN, () -> {
+            doInitialize();
+            return null;
+        } );
+    }
 
-        if ( !this.hasContent( xsltSitePath ) )
+    private void doInitialize()
+    {
+        final ContentPath path = ContentPath.from( ContentPath.ROOT, "xslt" );
+        if ( hasContent( path ) )
         {
-            final ModuleConfig moduleConfig = ModuleConfig.newModuleConfig().
-                module( THIS_MODULE ).
-                config( new PropertyTree() ).
-                build();
-            final ModuleConfigs moduleConfigs = ModuleConfigs.from( moduleConfig );
-
-            final Site site = contentService.create( createSiteContent( "Xslt", "Xslt demo site.", moduleConfigs ) );
-
-            createPageTemplateHomePage( site.getPath() );
+            LOG.info( "Already initialized with data. Skipping." );
+            return;
         }
+
+        LOG.info( "Initializing data...." );
+
+        final ModuleConfig moduleConfig = ModuleConfig.newModuleConfig().
+            module( THIS_MODULE ).
+            config( new PropertyTree() ).
+            build();
+        final ModuleConfigs moduleConfigs = ModuleConfigs.from( moduleConfig );
+
+        final Site site = contentService.create( createSiteContent( "Xslt", "Xslt demo site.", moduleConfigs ) );
+        final UpdateContentParams setSitePermissions = new UpdateContentParams().
+            contentId( site.getId() ).
+            editor( ( content ) -> {
+                content.permissions = PERMISSIONS;
+                content.inheritPermissions = false;
+            } );
+        this.contentService.update( setSitePermissions );
+
+        createRssTemplate( site.getPath() );
+
+        this.contentService.applyPermissions(
+            ApplyContentPermissionsParams.create().contentId( site.getId() ).modifier( PrincipalKey.ofAnonymous() ).build() );
+    }
+
+    private <T> T runAs( final PrincipalKey role, final Callable<T> runnable )
+    {
+        final AuthenticationInfo authInfo = AuthenticationInfo.create().principals( role ).user( User.ANONYMOUS ).build();
+        return ContextBuilder.from( ContextAccessor.current() ).authInfo( authInfo ).build().callWith( runnable );
     }
 
     private CreateSiteParams createSiteContent( final String displayName, final String description, final ModuleConfigs moduleConfigs )
@@ -66,25 +108,20 @@ public final class Initializer
             parent( ContentPath.ROOT );
     }
 
-    private Content createPageTemplateHomePage( final ContentPath sitePath )
+    private Content createRssTemplate( final ContentPath sitePath )
     {
         final ContentTypeNames supports = ContentTypeNames.from( ContentTypeName.site() );
 
-        return pageTemplateService.create( new CreatePageTemplateParams().
+        return this.pageTemplateService.create( new CreatePageTemplateParams().
             site( sitePath ).
-            name( "xslt-landing-page" ).
-            displayName( "XSLT Landing page" ).
-            controller( DescriptorKey.from( THIS_MODULE, "xslt-landing-page" ) ).
+            name( "rss-page" ).
+            displayName( "Rss page" ).
+            controller( DescriptorKey.from( THIS_MODULE, "rss" ) ).
             supports( supports ).
             pageConfig( new PropertyTree() ).
             pageRegions( PageRegions.newPageRegions().
-                add( Region.newRegion().
-                    name( "main" ).
-                    add( PartComponent.newPartComponent().name( "Empty-part" ).build() ).
-                    build() ).
                 build() ) );
     }
-
 
     private boolean hasContent( final ContentPath path )
     {
