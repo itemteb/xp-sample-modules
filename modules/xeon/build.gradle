@@ -1,7 +1,11 @@
 apply plugin: 'com.enonic.xp.gradle.module'
 
 module {
+    // name = 'com.enonic.wem.modules.xeon'
     displayName = 'Xeon Sample Module'
+    url = 'https://github.com/enonic/wem-sample-modules'
+    vendorName = 'Enonic AS'
+    vendorUrl = 'http://enonic.com'
 }
 
 dependencies {
