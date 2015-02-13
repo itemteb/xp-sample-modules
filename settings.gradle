@@ -1,6 +1,5 @@
 include 'xeon'
 include 'xslt'
-include 'demo'
 include 'features'
 
 rootProject.children.each { project ->
