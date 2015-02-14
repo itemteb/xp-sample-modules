@@ -5,6 +5,6 @@
   <to-semantic>related of person</to-semantic>
   <allowed-from-types/>
   <allowed-to-types>
-    <content-type>com.enonic.wem.modules.xeon:person</content-type>
+    <content-type>com.enonic.xp.modules.xeon:person</content-type>
   </allowed-to-types>
 </relationship-type>

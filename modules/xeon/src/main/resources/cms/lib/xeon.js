@@ -18,7 +18,7 @@ exports.defaultParams = function (req) {
     var editMode = req.mode == 'edit';
 
     var site = execute('portal.getSite');
-    var moduleConfig = site.moduleConfigs['com.enonic.wem.modules.xeon'];
+    var moduleConfig = site.moduleConfigs['com.enonic.xp.modules.xeon'];
     var content = execute('portal.getContent');
 
     return {

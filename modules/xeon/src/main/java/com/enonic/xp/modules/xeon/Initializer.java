@@ -1,4 +1,4 @@
-package com.enonic.wem.modules.xeon;
+package com.enonic.xp.modules.xeon;
 
 import java.util.concurrent.Callable;
 

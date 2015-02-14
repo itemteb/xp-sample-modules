@@ -22,7 +22,7 @@
       <help-text/>
       <occurrences minimum="0" maximum="0"/>
       <config>
-        <allow-content-type>com.enonic.wem.modules.xeon:person</allow-content-type>
+        <allow-content-type>com.enonic.xp.modules.xeon:person</allow-content-type>
       </config>
     </input>
   </config>

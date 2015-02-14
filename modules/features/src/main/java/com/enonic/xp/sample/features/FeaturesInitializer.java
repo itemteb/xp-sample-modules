@@ -1,4 +1,4 @@
-package com.enonic.wem.sample.features;
+package com.enonic.xp.sample.features;
 
 import java.util.concurrent.Callable;
 
@@ -41,7 +41,8 @@ public final class FeaturesInitializer
     private static final AccessControlList PERMISSIONS =
         AccessControlList.of( AccessControlEntry.create().principal( PrincipalKey.ofAnonymous() ).allow( Permission.READ ).build(),
                               AccessControlEntry.create().principal( RoleKeys.EVERYONE ).allow( Permission.READ ).build(),
-                              AccessControlEntry.create().principal( RoleKeys.AUTHENTICATED ).allowAll().build() );
+                              AccessControlEntry.create().principal( RoleKeys.AUTHENTICATED ).allowAll().build(),
+                              AccessControlEntry.create().principal( RoleKeys.CONTENT_MANAGER_ADMIN ).allowAll().build() );
 
     private ContentService contentService;
 

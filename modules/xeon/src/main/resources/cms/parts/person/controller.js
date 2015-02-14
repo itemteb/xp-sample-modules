@@ -11,7 +11,7 @@ function handleGet(req) {
         imageId,
         personImageUrl;
 
-    if (content.type == 'com.enonic.wem.modules.xeon:person') {
+    if (content.type == 'com.enonic.xp.modules.xeon:person') {
         personContent = content;
     } else {
         var personId;

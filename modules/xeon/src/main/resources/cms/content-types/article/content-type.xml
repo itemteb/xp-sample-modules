@@ -51,7 +51,7 @@
           <help-text/>
           <occurrences minimum="0" maximum="0"/>
           <config>
-            <relationship-type>com.enonic.wem.modules.xeon:related-person</relationship-type>
+            <relationship-type>com.enonic.xp.modules.xeon:related-person</relationship-type>
           </config>
         </input>
         <input name="facts" type="TextLine">
