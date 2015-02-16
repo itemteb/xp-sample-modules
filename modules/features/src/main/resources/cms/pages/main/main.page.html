@@ -18,7 +18,7 @@
     Components in main:
     <div data-th-if="${reqContent.page.regions['main']}" data-th-remove="tag">
         <div data-th-each="component : ${reqContent.page.regions['main'].components}" data-th-remove="tag">
-            <div data-wem-component="${component.path}" data-th-remove="tag"></div>
+            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
         </div>
     </div>
 </div>

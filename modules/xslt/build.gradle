@@ -3,7 +3,7 @@ apply plugin: 'com.enonic.xp.gradle.module'
 module {
     // name = 'com.enonic.wem.modules.xslt'
     displayName = 'Xslt Sample Module'
-    url = 'https://github.com/enonic/wem-sample-modules'
+    url = 'https://github.com/enonic/xp-sample-modules'
     vendorName = 'Enonic AS'
     vendorUrl = 'http://enonic.com'
 }
