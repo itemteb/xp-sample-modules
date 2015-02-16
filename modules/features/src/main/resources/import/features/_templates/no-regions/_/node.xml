@@ -11,10 +11,12 @@
           <string name="supports">base:folder</string>
         </property-set>
         <property-set name="meta">
-          <property-set name="features-menu-item">
+          <property-set name="com-enonic-xp-modules-features">
+            <property-set name="menu-item">
                 <boolean name="menuItem">false</boolean>
                 <string name="menuName"></string>
             </property-set>
+          </property-set>
         </property-set>
         <property-set name="page">
             <string name="controller">com.enonic.xp.modules.features:no-regions</string>

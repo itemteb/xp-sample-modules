@@ -7,7 +7,11 @@ function isMenuItem(content) {
     if (!extraData) {
         return false;
     }
-    var menuItemMetadata = extraData['features-menu-item'] || {};
+    var extraDataModule = extraData['com-enonic-xp-modules-features'];
+    if (!extraDataModule || !extraDataModule['menu-item']) {
+        return false;
+    }
+    var menuItemMetadata = extraDataModule['menu-item'] || {};
     var menuItemValue = menuItemMetadata.menuItem;
     return menuItemValue;
 }
@@ -41,7 +45,7 @@ function menuItemToJson(content, levels) {
     
     return {
         displayName: content.displayName,
-        menuName: content.x['features-menu-item'].menuName,
+        menuName: content.x['com-enonic-xp-modules-features']['menu-item'].menuName,
         path: content._path,
         name: content._name,
         id: content._id,

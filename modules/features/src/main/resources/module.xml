@@ -8,7 +8,7 @@
     <url>http://www.enonic.com</url>
   </vendor>
   <dependencies system-min-version="5.0.0" system-max-version="6.0.0"/>
-  <x-data mixin="features-menu-item"/>
+  <x-data mixin="menu-item"/>
   <config>
   </config>
 </module>
