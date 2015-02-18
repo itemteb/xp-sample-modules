@@ -7,6 +7,7 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">'main' region only</string>
       <string name="type">portal:page-template</string>
+      <string name="creator">user:system:anonymous</string>
         <property-set name="data">
           <string name="supports">portal:site</string>
         </property-set>
