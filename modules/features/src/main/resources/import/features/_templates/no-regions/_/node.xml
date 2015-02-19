@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>features:_templates:no-region</id>
-    <childOrder>_modifiedtime DESC</childOrder>
+  <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
@@ -14,10 +14,10 @@
         <property-set name="meta">
           <property-set name="com-enonic-xp-modules-features">
             <property-set name="menu-item">
-                <boolean name="menuItem">false</boolean>
-                <string name="menuName"></string>
+              <boolean name="menuItem">false</boolean>
+              <string name="menuName"></string>
             </property-set>
-          </property-set>
+            </property-set>
         </property-set>
         <property-set name="page">
             <string name="controller">com.enonic.xp.modules.features:no-regions</string>

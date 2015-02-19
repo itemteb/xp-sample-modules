@@ -15,10 +15,10 @@
         <property-set name="x">
           <property-set name="com-enonic-xp-modules-features">
             <property-set name="menu-item">
-                <boolean name="menuItem">false</boolean>
-                <string name="menuName"></string>
+              <boolean name="menuItem">false</boolean>
+              <string name="menuName"></string>
             </property-set>
-          </property-set>
+            </property-set>
         </property-set>
     </data>
     <indexConfigs>

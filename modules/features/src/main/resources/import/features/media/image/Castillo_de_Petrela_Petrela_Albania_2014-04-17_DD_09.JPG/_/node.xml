@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>3d37979c-3269-48b3-ab02-9e7efe69e744</id>
-    <childOrder>_modifiedtime DESC</childOrder>
+  <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Castillo_de_Petrela_Petrela_Albania_2014-04-17_DD_09.JPG</string>
+      <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+      <string name="modifier">user:system:su</string>
+      <string name="creator">user:system:anonymous</string>
+      <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
       <string name="type">media:image</string>
         <property-set name="data">
             <string name="media">Castillo_de_Petrela_Petrela_Albania_2014-04-17_DD_09.JPG</string>
@@ -101,7 +105,8 @@
                 <string name="class">Display Device</string>
                 <string name="profileConnectionSpace">XYZ</string>
                 <string name="dateCreated">Thu Apr 17 00:00:00 CEST 2014</string>
-                <string name="measurement">1931 2° Observer, Backing (0.0, 0.0, 0.0), Geometry Unknown, Flare 1%, Illuminant D65</string>
+              <string name="measurement">1931 2&amp;#176; Observer, Backing (0.0, 0.0, 0.0), Geometry Unknown, Flare 1%, Illuminant D65
+              </string>
                 <string name="viewingConditionsDescription">Reference Viewing Condition in IEC61966-2.1</string>
                 <string name="dataPrecision">8 bits</string>
                 <string name="subSecTimeOriginal">35</string>

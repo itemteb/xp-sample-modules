@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>5a5fc786-a4e6-4a4d-a21a-19ac6fd4784b</id>
-    <childOrder>_modifiedtime DESC</childOrder>
+  <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Elephant_(Loxodonta_Africana)_04.jpg</string>
+      <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+      <string name="modifier">user:system:su</string>
+      <string name="creator">user:system:anonymous</string>
+      <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
       <string name="type">media:image</string>
         <property-set name="data">
             <string name="media">Elephant_(Loxodonta_Africana)_04.jpg</string>

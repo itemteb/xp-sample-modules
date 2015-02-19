@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>3d8dc241-1a52-48f6-9a27-cde26226bd63</id>
-    <childOrder>_modifiedtime DESC</childOrder>
+  <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Chichicastenango-004-denoised.jpg</string>
+      <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+      <string name="modifier">user:system:su</string>
+      <string name="creator">user:system:anonymous</string>
+      <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
       <string name="type">media:image</string>
         <property-set name="data">
             <string name="media">Chichicastenango-004-denoised.jpg</string>
