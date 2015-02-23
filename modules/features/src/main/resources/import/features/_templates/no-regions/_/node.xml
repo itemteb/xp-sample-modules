@@ -7,7 +7,10 @@
         <boolean name="valid">true</boolean>
         <string name="displayName">No regions</string>
       <string name="type">portal:page-template</string>
+      <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+      <string name="modifier">user:system:su</string>
       <string name="creator">user:system:anonymous</string>
+      <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
         <property-set name="data">
           <string name="supports">base:folder</string>
         </property-set>
