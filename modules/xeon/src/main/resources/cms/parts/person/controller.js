@@ -35,7 +35,7 @@ function handleGet(req) {
     }
 
     if (imageId) {
-        personImageUrl = execute('portal.imageUrl', {id: imageId, filter: 'scaleblock(400,400)'});
+        personImageUrl = execute('portal.imageUrl', {id: imageId, scale: 'block(400,400)'});
     } else {
         personImageUrl = execute('portal.assetUrl', {path: 'images/team1.jpg'});
     }

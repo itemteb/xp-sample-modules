@@ -5,7 +5,7 @@ exports.getLogoUrl = function (req, moduleConfig) {
     if (logoContentId) {
         return execute('portal.imageUrl', {
             id: logoContentId,
-            filter: 'scaleblock(115,26)'
+            scale: 'block(115,26)'
         });
     } else {
         return execute('portal.assetUrl', {

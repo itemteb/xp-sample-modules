@@ -13,7 +13,7 @@ function handleGet(req) {
         var imageContentUrl = imageContentId ?
                               execute('portal.imageUrl', {
                                   id: imageContentId,
-                                  filter: 'scaleblock(400,400)'
+                                  scale: 'block(400,400)'
                               }) :
                               defaultPersonImageUrl;
 
