@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<layout-component>
-  <display-name>Float left</display-name>
-  <config/>
-  <regions>
-    <region name="left"/>
-    <region name="main"/>
-  </regions>
-</layout-component>
