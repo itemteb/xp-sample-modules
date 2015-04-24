@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>a76ec725-b7f9-45dd-8ffd-e173476535e5</id>
-  <childOrder>modifiedtime DESC</childOrder>
+    <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Dictyophorus_spumans01.jpg</string>
-      <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
-      <string name="modifier">user:system:su</string>
-      <string name="creator">user:system:anonymous</string>
-      <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
-      <string name="type">media:image</string>
+        <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:anonymous</string>
+        <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
+        <string name="type">media:image</string>
         <property-set name="data">
             <string name="media">Dictyophorus_spumans01.jpg</string>
             <string name="mimeType">image/jpeg</string>
@@ -36,7 +35,7 @@
                 <string name="modified">2007-01-06T22:32:53</string>
                 <string name="tiffBitspersample">8</string>
                 <string name="exposureProgram">Program creative (slow program)</string>
-                <string name="userComment"></string>
+                <string name="userComment"/>
                 <string name="fileSource">Digital Still Camera (DSC)</string>
                 <string name="metaCreationDate">2005-11-10T14:36:36</string>
                 <string name="exifFnumber">3.2</string>
