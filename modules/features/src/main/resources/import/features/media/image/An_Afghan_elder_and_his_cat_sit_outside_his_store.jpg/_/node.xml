@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>0d7dcd8b-bde8-4091-a222-51e85f17f20f</id>
-  <childOrder>modifiedtime DESC</childOrder>
+    <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
-      <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
-      <string name="modifier">user:system:su</string>
-      <string name="creator">user:system:anonymous</string>
-      <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
+        <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:anonymous</string>
+        <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
         <string name="displayName">An_Afghan_elder_and_his_cat_sit_outside_his_store.jpg</string>
-      <string name="type">media:image</string>
+        <string name="type">media:image</string>
         <property-set name="data">
             <string name="media">An_Afghan_elder_and_his_cat_sit_outside_his_store.jpg</string>
             <string name="mimeType">image/jpeg</string>
@@ -128,7 +127,7 @@
                 <string name="class">Display Device</string>
                 <string name="profileConnectionSpace">XYZ</string>
                 <string name="dateCreated">Sat Jan 02 00:00:00 CET 2010</string>
-              <string name="measurement">1931 2&amp;#176; Observer, Backing (0.0, 0.0, 0.0), Geometry Unknown, Flare 1%, Illuminant D65
+                <string name="measurement">1931 2° Observer, Backing (0.0, 0.0, 0.0), Geometry Unknown, Flare 1%, Illuminant D65
               </string>
                 <string name="keywords"> Afghan elder sits outside his store</string>
                 <string name="countryPrimaryLocationCode">AFG</string>
