@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>1c0a4681-2b14-4f49-8b44-a90cd9139fe3</id>
-  <childOrder>modifiedtime DESC</childOrder>
+    <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">media</string>
-      <string name="type">base:folder</string>
-      <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
-      <string name="modifier">user:system:su</string>
-      <string name="creator">user:system:anonymous</string>
-      <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
-
-      <property-set name="data"/>
+        <string name="type">base:folder</string>
+        <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:anonymous</string>
+        <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
+        <property-set name="data"/>
     </data>
     <indexConfigs>
         <analyzer>content_default</analyzer>

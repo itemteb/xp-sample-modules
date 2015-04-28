@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>8d933461-ede7-4dd5-80da-cb7de0cd7bba</id>
     <childOrder>modifiedtime DESC</childOrder>
@@ -13,11 +12,11 @@
         <dateTime name="createdTime">2015-02-11T11:01:56.649Z</dateTime>
         <property-set name="data"/>
         <property-set name="x">
-          <property-set name="com-enonic-xp-modules-features">
-            <property-set name="menu-item">
-              <boolean name="menuItem">false</boolean>
-              <string name="menuName"></string>
-            </property-set>
+            <property-set name="com-enonic-xp-modules-features">
+                <property-set name="menu-item">
+                    <boolean name="menuItem">false</boolean>
+                    <string name="menuName"/>
+                </property-set>
             </property-set>
         </property-set>
     </data>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>a3e276b6-62a9-44e8-ace2-3bd2e9f08d2f</id>
-  <childOrder>modifiedtime DESC</childOrder>
+    <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">the-irish-washerwoman.mp3</string>
-      <string name="creator">user:system:anonymous</string>
-      <string name="type">media:audio</string>
+        <string name="creator">user:system:anonymous</string>
+        <string name="type">media:audio</string>
         <property-set name="data">
             <string name="media">the-irish-washerwoman.mp3</string>
             <string name="mimeType">audio/mp3</string>

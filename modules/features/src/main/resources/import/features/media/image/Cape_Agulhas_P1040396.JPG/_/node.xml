@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <node xmlns="urn:enonic:xp:export:1.0">
     <id>2940adcf-1991-4493-a38c-3d590c805db2</id>
-  <childOrder>modifiedtime DESC</childOrder>
+    <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Cape_Agulhas_P1040396.JPG</string>
-      <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
-      <string name="modifier">user:system:su</string>
-      <string name="creator">user:system:anonymous</string>
-      <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
-      <string name="type">media:image</string>
+        <dateTime name="modifiedTime">2015-02-11T11:01:56.747Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:anonymous</string>
+        <dateTime name="createdTime">2015-02-11T11:01:56.747Z</dateTime>
+        <string name="type">media:image</string>
         <property-set name="data">
             <string name="media">Cape_Agulhas_P1040396.JPG</string>
             <string name="mimeType">image/jpeg</string>
