@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Cities Management Page</title>
+    </head>
+
+    <body data-portal-component-type="page">
+        <h1>Cities Management Page</h1>
+        <div id="mainRegion" data-portal-component-type="region">
+            <div data-th-if="${content.page.regions['main']}" data-th-remove="tag">
+                <div data-th-each="component : ${content.page.regions['main'].components}" data-th-remove="tag">
+                    <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
